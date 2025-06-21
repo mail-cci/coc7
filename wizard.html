@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Asistente de Creación - CoC7</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="wizard.js"></script>
+</head>
+<body>
+    <div class="container" style="padding:20px;">
+        <h1 style="text-align:center;margin-bottom:20px;">Asistente de Creación</h1>
+
+        <section class="wizard-step" id="step-1">
+            <h2 class="section-title">Características</h2>
+            <div class="characteristics-grid" id="stats-grid"></div>
+            <button class="dice-button" id="roll-all">Tirar Todas</button>
+        </section>
+
+        <section class="wizard-step" id="step-2" style="display:none;">
+            <h2 class="section-title">Atributos Derivados</h2>
+            <div class="characteristics-grid" id="derived-grid">
+                <div class="characteristic-card"><div class="char-name">PV</div><div id="hp-field" class="result-display">-</div></div>
+                <div class="characteristic-card"><div class="char-name">Cordura</div><div id="sanity-field" class="result-display">-</div></div>
+                <div class="characteristic-card"><div class="char-name">Puntos de Magia</div><div id="mp-field" class="result-display">-</div></div>
+            </div>
+        </section>
+
+        <section class="wizard-step" id="step-3" style="display:none;">
+            <h2 class="section-title">Ocupación</h2>
+            <select id="occupation-select"></select>
+            <ul id="skills-list"></ul>
+        </section>
+
+        <section class="wizard-step" id="step-4" style="display:none;">
+            <h2 class="section-title">Combate</h2>
+            <textarea id="combat-notes" rows="4" style="width:100%" placeholder="Anota información de combate"></textarea>
+        </section>
+
+        <section class="wizard-step" id="step-5" style="display:none;">
+            <h2 class="section-title">Background</h2>
+            <textarea id="background-notes" rows="4" style="width:100%" placeholder="Historia del personaje"></textarea>
+        </section>
+
+        <section class="wizard-step" id="step-6" style="display:none;">
+            <h2 class="section-title">Equipamiento</h2>
+            <textarea id="equipment-notes" rows="4" style="width:100%" placeholder="Equipo inicial"></textarea>
+        </section>
+
+        <section class="wizard-step" id="step-7" style="display:none;">
+            <h2 class="section-title">Resumen Final</h2>
+            <pre id="summary" style="white-space:pre-wrap"></pre>
+        </section>
+
+        <div style="margin-top:20px;text-align:center;">
+            <button class="dice-button" id="prev-btn">Anterior</button>
+            <button class="dice-button" id="next-btn">Siguiente</button>
+        </div>
+    </div>
+</body>
+</html>
