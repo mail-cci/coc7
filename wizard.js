@@ -18,13 +18,23 @@ function showStep(index){
         s.style.display = i===index ? 'block' : 'none';
     });
     document.getElementById('prev-btn').style.display = index===0?'none':'inline-block';
-    document.getElementById('next-btn').textContent = index===steps.length-1?'Finalizar':'Siguiente';
+    const nextBtn = document.getElementById('next-btn');
+    if(index===steps.length-1){
+        nextBtn.style.display = 'none';
+    } else {
+        nextBtn.style.display = 'inline-block';
+        nextBtn.textContent = 'Siguiente';
+    }
 }
 
 function gatherData(){
     creator.setCombatNotes(document.getElementById('combat-notes').value);
     creator.setBackground(document.getElementById('background-notes').value);
     creator.setEquipment(document.getElementById('equipment-notes').value);
+    const posEl = document.getElementById('possessions-notes');
+    if(posEl){
+        creator.setPossessions(posEl.value);
+    }
 }
 
 function renderSummary(){
@@ -43,7 +53,8 @@ function renderSummary(){
     }
     if(char.combat.notes){ txt+=`\nCombate:\n${char.combat.notes}\n`; }
     if(char.background){ txt+=`\nBackground:\n${char.background}\n`; }
-    if(char.equipment){ txt+=`\nEquipamiento:\n${char.equipment}\n`; }
+    if(char.possessions){ txt+=`\nPosesiones:\n${char.possessions}\n`; }
+    else if(char.equipment){ txt+=`\nEquipamiento:\n${char.equipment}\n`; }
     document.getElementById('summary').textContent = txt;
 }
 
@@ -88,5 +99,13 @@ document.getElementById('prev-btn').addEventListener('click', () => {
         showStep(current);
     }
 });
+
+const downloadBtn = document.getElementById('download-btn');
+if(downloadBtn){
+    downloadBtn.addEventListener('click', () => {
+        gatherData();
+        creator.exportPDF();
+    });
+}
 
 showStep(0);
