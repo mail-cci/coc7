@@ -1,15 +1,64 @@
 import { CharacterCreator } from './characterCreator.js';
 
 const creator = new CharacterCreator();
-creator.init();
+creator.init().then(()=>{
+    loadState();
+    updateUIFromState();
+    showStep(current);
+});
 
 const steps = Array.from(document.querySelectorAll('.wizard-step'));
 let current = 0;
+
+function saveState(){
+    const data = {
+        step: current,
+        character: creator.getCharacter()
+    };
+    localStorage.setItem('wizardState', JSON.stringify(data));
+}
+window.saveWizardState = saveState;
+
+function loadState(){
+    const saved = localStorage.getItem('wizardState');
+    if(saved){
+        try{
+            const data = JSON.parse(saved);
+            current = data.step || 0;
+            Object.assign(creator.character, data.character || {});
+        }catch(e){
+            console.error('Error loading state', e);
+        }
+    }
+}
+
+function updateUIFromState(){
+    const char = creator.getCharacter();
+    Object.keys(char.stats).forEach(k=>{
+        const el = document.getElementById(`stat-${k}`);
+        if(el) el.textContent = char.stats[k] || '-';
+        const cmt = document.getElementById(`comment-${k}`);
+        if(cmt && char.stats[k]){
+            cmt.textContent = char.stats[k] >= 50 ? 'Por encima del promedio' : 'En el promedio';
+        }
+    });
+    if(char.luck){
+        const lEl = document.getElementById('luck-field');
+        if(lEl) lEl.textContent = char.luck;
+    }
+    if(char.occupation){
+        const sel = document.getElementById('occupation-select');
+        if(sel) sel.value = char.occupation.name;
+    }
+    gatherData();
+    renderSummary();
+}
 
 const rollLuckBtn = document.getElementById('roll-luck');
 if (rollLuckBtn) {
     rollLuckBtn.addEventListener('click', () => {
         creator.rollLuck();
+        saveState();
     });
 }
 
@@ -25,6 +74,11 @@ function showStep(index){
         nextBtn.style.display = 'inline-block';
         nextBtn.textContent = 'Siguiente';
     }
+    const bar = document.getElementById('progress-bar');
+    if(bar){
+        bar.style.width = ((index)/(steps.length-1))*100 + '%';
+    }
+    saveState();
 }
 
 function gatherData(){
@@ -35,6 +89,7 @@ function gatherData(){
     if(posEl){
         creator.setPossessions(posEl.value);
     }
+    saveState();
 }
 
 function renderSummary(){
@@ -108,4 +163,25 @@ if(downloadBtn){
     });
 }
 
-showStep(0);
+['combat-notes','background-notes','equipment-notes','possessions-notes'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el){
+        el.addEventListener('input', ()=>{gatherData();});
+    }
+});
+
+const occSelect=document.getElementById('occupation-select');
+if(occSelect){
+    occSelect.addEventListener('change', ()=>{saveState();});
+}
+
+const restartBtn = document.getElementById('restart-btn');
+if(restartBtn){
+    restartBtn.addEventListener('click', ()=>{
+        if(confirm('¿Seguro que quieres empezar de nuevo?')){
+            localStorage.removeItem('wizardState');
+            window.location.reload();
+        }
+    });
+}
+showStep(current);

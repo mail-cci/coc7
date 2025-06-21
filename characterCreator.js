@@ -16,6 +16,7 @@ export class CharacterCreator {
         };
         this.occupations = [];
         this.allSkills = [];
+        this.rerolls = {};
     }
 
     async init() {
@@ -123,6 +124,10 @@ export class CharacterCreator {
             val.textContent = '-';
             card.appendChild(name);
             card.appendChild(val);
+            const comment = document.createElement('div');
+            comment.id = `comment-${key}`;
+            comment.className = 'stat-comment';
+            card.appendChild(comment);
             const btn = document.createElement('button');
             btn.textContent = 'Tirar';
             btn.className = 'dice-button';
@@ -130,6 +135,19 @@ export class CharacterCreator {
                 this.rollStat(key);
             });
             card.appendChild(btn);
+            const input = document.createElement('input');
+            input.type = 'number';
+            input.min = 0;
+            input.placeholder = 'Manual';
+            input.addEventListener('change', () => {
+                const v = parseInt(input.value) || 0;
+                this.character.stats[key] = v;
+                val.textContent = v;
+                this.calculateDerived();
+                this.updateDerivedUI();
+                if(window.saveWizardState) window.saveWizardState();
+            });
+            card.appendChild(input);
             grid.appendChild(card);
         });
     }
@@ -174,16 +192,30 @@ export class CharacterCreator {
     }
 
     rollStat(stat) {
-        let value;
-        if (['TAM','INT','EDU'].includes(stat)) {
-            value = (this.rollDice(2,6)+6)*5;
-        } else {
-            value = this.rollDice(3,6)*5;
+        if(!this.rerolls[stat]) this.rerolls[stat] = 0;
+        if(this.rerolls[stat] >= 2) return;
+        const el = document.getElementById(`stat-${stat}`);
+        if(el){
+            el.textContent = '🎲';
         }
-        this.character.stats[stat] = value;
-        document.getElementById(`stat-${stat}`).textContent = value;
-        this.calculateDerived();
-        this.updateDerivedUI();
+        setTimeout(() => {
+            let value;
+            if (['TAM','INT','EDU'].includes(stat)) {
+                value = (this.rollDice(2,6)+6)*5;
+            } else {
+                value = this.rollDice(3,6)*5;
+            }
+            this.character.stats[stat] = value;
+            if(el) el.textContent = value;
+            this.rerolls[stat]++;
+            this.calculateDerived();
+            this.updateDerivedUI();
+            const commentEl = document.getElementById(`comment-${stat}`);
+            if(commentEl){
+                commentEl.textContent = value >= 50 ? 'Por encima del promedio' : 'En el promedio';
+            }
+            if(window.saveWizardState) window.saveWizardState();
+        }, 500);
     }
 
     rollLuck() {
@@ -196,9 +228,11 @@ export class CharacterCreator {
         if (luckEl) luckEl.textContent = value;
         this.calculateDerived();
         this.updateDerivedUI();
+        if(window.saveWizardState) window.saveWizardState();
     }
 
     rollAll() {
+        this.rerolls = {};
         Object.keys(this.character.stats).forEach(stat => this.rollStat(stat));
         this.rollLuck();
     }
@@ -232,6 +266,7 @@ export class CharacterCreator {
             }
         }
         this.renderSkillsLists();
+        if(window.saveWizardState) window.saveWizardState();
     }
 
     exportPDF() {

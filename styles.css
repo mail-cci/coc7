@@ -435,9 +435,31 @@
             .tab-button, .dice-button {
                 min-height: 44px;
             }
-            
+
             .calc-inputs input {
                 min-height: 44px;
                 font-size: 1.1rem;
             }
+        }
+
+        .progress {
+            width: 100%;
+            background: rgba(255,255,255,0.1);
+            height: 8px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg,#d4af37,#ffd700);
+            transition: width 0.3s ease;
+        }
+
+        .stat-comment {
+            font-size: 0.8rem;
+            margin-top: 4px;
+            color: #bbb;
         }
