@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call of Cthulhu 7ª Ed - Cheat Sheet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #f0f0f0;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(45deg, #8b0000, #4a0000);
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            border-bottom: 3px solid #d4af37;
+        }
+
+        .header::before {
+            content: '🐙';
+            position: absolute;
+            top: 15px;
+            left: 30px;
+            font-size: 2rem;
+            opacity: 0.7;
+        }
+
+        .header::after {
+            content: '🎲';
+            position: absolute;
+            top: 15px;
+            right: 30px;
+            font-size: 2rem;
+            opacity: 0.7;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #d4af37;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #bbb;
+            font-style: italic;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: rgba(139, 0, 0, 0.3);
+            border-bottom: 2px solid #d4af37;
+            overflow-x: auto;
+        }
+
+        .tab-button {
+            padding: 15px 25px;
+            background: transparent;
+            color: #f0f0f0;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            white-space: nowrap;
+        }
+
+        .tab-button:hover {
+            background: rgba(212, 175, 55, 0.2);
+            color: #d4af37;
+        }
+
+        .tab-button.active {
+            background: rgba(212, 175, 55, 0.3);
+            color: #d4af37;
+            border-bottom-color: #d4af37;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 30px;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #d4af37;
+            margin-bottom: 25px;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        .characteristics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .characteristic-card {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.2), rgba(74, 0, 0, 0.3));
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .characteristic-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #d4af37, #ffd700);
+        }
+
+        .characteristic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
+            border-color: #d4af37;
+        }
+
+        .char-name {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #d4af37;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .char-abbr {
+            background: rgba(212, 175, 55, 0.2);
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-family: monospace;
+        }
+
+        .char-description {
+            color: #ccc;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .char-description strong {
+            color: #f0f0f0;
+            font-weight: 600;
+        }
+
+        .dice-formula {
+            background: rgba(0, 0, 0, 0.4);
+            border: 2px solid #d4af37;
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #d4af37;
+            margin-top: 10px;
+            position: relative;
+        }
+
+        .dice-formula::before {
+            content: '🎲';
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .special-note {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid #d4af37;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .dice-button {
+            background: linear-gradient(45deg, #d4af37, #ffd700);
+            color: #000;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .dice-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .result-display {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid #d4af37;
+            border-radius: 6px;
+            padding: 10px;
+            margin-top: 10px;
+            text-align: center;
+            font-weight: bold;
+            color: #d4af37;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Responsive design for iPad */
+        @media (max-width: 768px) {
+            .characteristics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                margin: 10px;
+                border-radius: 10px;
+            }
+            
+            .tab-button {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        .calc-inputs {
+            margin: 15px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .calc-inputs label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: bold;
+            color: #d4af37;
+        }
+
+        .occupation-card {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.2), rgba(74, 0, 0, 0.3));
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, rgba(0, 100, 150, 0.2), rgba(0, 50, 100, 0.3));
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00bcd4, #0096c7);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 188, 212, 0.2);
+            border-color: #00bcd4;
+        }
+
+        .skill-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #00bcd4;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .skill-base {
+            background: rgba(0, 188, 212, 0.2);
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-family: monospace;
+            color: #00bcd4;
+            font-weight: normal;
+        }
+
+        .skill-description {
+            color: #ccc;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .skill-description strong {
+            color: #f0f0f0;
+            font-weight: 600;
+        }
+
+        .occupation-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #d4af37, #ffd700);
+        }
+
+        .occupation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
+            border-color: #d4af37;
+        }
+
+        .category-tag {
+            font-size: 0.8rem;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .category-tag.general {
+            background: rgba(100, 100, 100, 0.3);
+            color: #ccc;
+        }
+
+        .category-tag.lovecraftiana {
+            background: rgba(212, 175, 55, 0.3);
+            color: #d4af37;
+        }
+
+        .category-tag.moderna {
+            background: rgba(0, 150, 200, 0.3);
+            color: #00bcd4;
+        }
+
+        .category-tag.clasica {
+            background: rgba(139, 0, 0, 0.3);
+            color: #ff6b6b;
+        }
+
+        .occupation-details {
+            margin: 15px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .credit-level, .skill-points {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 8px;
+            border-radius: 6px;
+            border-left: 3px solid #d4af37;
+        }
+
+        .skills-list {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .calc-inputs input {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid #d4af37;
+            border-radius: 4px;
+            padding: 8px 12px;
+            color: #f0f0f0;
+            font-size: 1rem;
+            width: 80px;
+        }
+
+        .calc-inputs input:focus {
+            outline: none;
+            border-color: #ffd700;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Touch-friendly buttons for iPad */
+        @media (hover: none) and (pointer: coarse) {
+            .tab-button, .dice-button {
+                min-height: 44px;
+            }
+            
+            .calc-inputs input {
+                min-height: 44px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Call of Cthulhu 7ª Edición</h1>
+            <p class="subtitle">Cheat Sheet del Guardián</p>
+        </header>
+
+        <nav class="nav-tabs">
+            <button class="tab-button active" onclick="showTab('creation')">Creación de Personaje</button>
+            <button class="tab-button" onclick="showTab('occupations')">Ocupaciones</button>
+            <button class="tab-button" onclick="showTab('combat')">Combate</button>
+            <button class="tab-button" onclick="showTab('skills')">Habilidades</button>
+            <button class="tab-button" onclick="showTab('sanity')">Cordura</button>
+        </nav>
+
+        <main>
+            <div id="creation" class="tab-content active">
+                <h2 class="section-title">Creación de Personaje</h2>
+                
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <button class="tab-button" onclick="toggleSection('characteristics')" style="margin: 0 10px;">Características</button>
+                    <button class="tab-button" onclick="toggleSection('derived')" style="margin: 0 10px;">Atributos Derivados</button>
+                </div>
+
+                <div id="characteristics-section">
+                    <h3 style="color: #d4af37; text-align: center; margin-bottom: 20px; font-size: 1.5rem;">📊 Características Base</h3>
+                    <div class="characteristics-grid">
+                    <div class="characteristic-card">
+                        <div class="char-name">
+                            Fuerza
+                            <span class="char-abbr">FUE</span>
+                        </div>
+                        <div class="char-description">
+                            <strong>La puntuación de fuerza determina la fuerza física</strong> de tu personaje. Una puntuación alta en fuerza podría resultar en una bonificación de daño en el combate cuerpo a cuerpo.
+                        </div>
+                        <div class="dice-formula">
+                            3D6 × 5
+                        </div>
+                        <button class="dice-button" onclick="rollDice(3, 6, 5, 'fue-result')">Tirar Dados</button>
+                        <div id="fue-result" class="result-display">Haz clic para tirar</div>
+                    </div>
+
+                    <div class="characteristic-card">
+                        <div class="char-name">
+                            Constitución
+                            <span class="char-abbr">CON</span>
+                        </div>
+                        <div class="char-description">
+                            La puntuación de constitución determina tu <strong>salud general y tu resistencia a enfermedades o venenos</strong>. Tu puntuación de constitución también afecta la cantidad de puntos de vida de tu personaje.
+                        </div>
+                        <div class="dice-formula">
+                            3D6 × 5
+                        </div>
+                        <button class="dice-button" onclick="rollDice(3, 6, 5, 'con-result')">Tirar Dados</button>
+                        <div id="con-result" class="result-display">Haz clic para tirar</div>
+                    </div>
+
+                    <div class="characteristic-card">
+                        <div class="char-name">
+                            Talla
+                            <span class="char-abbr">TAM</span>
+                        </div>
+                        <div class="char-description">
+                            Tu puntuación de tamaño representa <strong>tu altura y peso</strong>. El tamaño afectará tus puntos de vida y la posible bonificación de daño.
+                        </div>
+                        <div class="dice-formula">
+                            (2D6 + 6) × 5
+                        </div>
+                        <button class="dice-button" onclick="rollDiceWithBonus(2, 6, 6, 5, 'tam-result')">Tirar Dados</button>
+                        <div id="tam-result" class="result-display">Haz clic para tirar</div>
+                    </div>
+
+                    <div class="characteristic-card">
+                        <div class="char-name">
+                            Destreza
+                            <span class="char-abbr">DES</span>
+                        </div>
+                        <div class="char-description">
+                            La destreza es <strong>tu agilidad y rapidez</strong>. Cuanto mayor sea tu puntuación de destreza, antes podrás actuar durante el combate.
+                        </div>
+                        <div class="dice-formula">
+                            3D6 × 5
+                        </div>
+                        <button class="dice-button" onclick="rollDice(3, 6, 5, 'des-result')">Tirar Dados</button>
+                        <div id="des-result" class="result-display">Haz clic para tirar</div>
+                    </div>
+
+                    <div class="characteristic-card">
+                        <div class="char-name">
+                            Apariencia
+                            <span class="char-abbr">APA</span>
+                        </div>
+                        <div class="char-description">
+                            Tu característica de apariencia no es solo tu <strong>apariencia física</strong>. También incluye tu <strong>personalidad y carisma</strong>.
+                        </div>
+                        <div class="dice-formula">
+                            3D6 × 5
+                        </div>
+                        <button class="dice-button" onclick="rollDice(3, 6, 5, 'apa-result')">Tirar Dados</button>
+                        <div id="apa-result" class="result-display">Haz clic para tirar</div>
+                    </div>
+
+                    <div class="characteristic-card">
+                        <div class="char-name">
+                            Inteligencia
+                            <span class="char-abbr">INT</span>
+                        </div>
+                        <div class="char-description">
+                            La inteligencia representa <strong>tu memoria y tu capacidad analítica</strong>. Tu puntuación de inteligencia se utiliza para determinar la cantidad de puntos de habilidad disponibles para tus intereses personales.
+                        </div>
+                        <div class="dice-formula">
+                            (2D6 + 6) × 5
+                        </div>
+                        <button class="dice-button" onclick="rollDiceWithBonus(2, 6, 6, 5, 'int-result')">Tirar Dados</button>
+                        <div id="int-result" class="result-display">Haz clic para tirar</div>
+                    </div>
+
+                    <div class="characteristic-card">
+                        <div class="char-name">
+                            Poder
+                            <span class="char-abbr">POD</span>
+                        </div>
+                        <div class="char-description">
+                            El poder se usa para determinar <strong>tu fuerza de voluntad</strong>. Tu atributo de poder también equivale a tu puntuación de cordura. Además, es útil para lanzar o resistir hechizos mágicos.
+                        </div>
+                        <div class="dice-formula">
+                            3D6 × 5
+                        </div>
+                        <button class="dice-button" onclick="rollDice(3, 6, 5, 'pod-result')">Tirar Dados</button>
+                        <div id="pod-result" class="result-display">Haz clic para tirar</div>
+                    </div>
+
+                    <div class="characteristic-card">
+                        <div class="char-name">
+                            Educación
+                            <span class="char-abbr">EDU</span>
+                        </div>
+                        <div class="char-description">
+                            La educación mide <strong>tu educación formal</strong>. Se diferencia de la inteligencia en que determina tu conocimiento factual, mientras que la inteligencia rige el uso de ese conocimiento.
+                        </div>
+                        <div class="dice-formula">
+                            (2D6 + 6) × 5
+                        </div>
+                        <button class="dice-button" onclick="rollDiceWithBonus(2, 6, 6, 5, 'edu-result')">Tirar Dados</button>
+                        <div id="edu-result" class="result-display">Haz clic para tirar</div>
+                    </div>
+
+                    <div class="characteristic-card">
+                        <div class="char-name">
+                            Suerte
+                            <span class="char-abbr">SUE</span>
+                        </div>
+                        <div class="char-description">
+                            Seamos sinceros, si te enfrentas a criaturas de los Mitos, puede que necesites algo de suerte de vez en cuando. Para salir airoso de situaciones complicadas, puedes usar una tirada de suerte.
+                        </div>
+                        <div class="dice-formula">
+                            3D6 × 5
+                        </div>
+                        <button class="dice-button" onclick="rollDice(3, 6, 5, 'sue-result')">Tirar Dados</button>
+                        <div id="sue-result" class="result-display">Haz clic para tirar</div>
+                    </div>
+                </div>
+
+                    <div class="special-note">
+                        <strong>💡 Nota importante:</strong> Recuerda que algunas características como INT y EDU usan la fórmula (2D6+6)×5, lo que garantiza un mínimo de 40 puntos en estas características fundamentales.
+                    </div>
+                </div>
+
+                <div id="derived-section" style="display: none;">
+                    <h3 style="color: #d4af37; text-align: center; margin-bottom: 20px; font-size: 1.5rem;">⚡ Atributos Derivados</h3>
+                    
+                    <div class="characteristics-grid">
+                        <div class="characteristic-card">
+                            <div class="char-name">
+                                Puntos de Cordura
+                                <span class="char-abbr">COR</span>
+                            </div>
+                            <div class="char-description">
+                                Tus <strong>Puntos de Cordura son iguales a tu característica de Poder (POD)</strong>. Representan tu estabilidad mental ante los horrores de los Mitos.
+                            </div>
+                            <div class="dice-formula">
+                                COR = POD
+                            </div>
+                            <div class="calc-inputs">
+                                <label>POD: <input type="number" id="pod-input" placeholder="70" onchange="calculateDerived()"></label>
+                            </div>
+                            <div id="sanity-result" class="result-display">Introduce POD para calcular</div>
+                        </div>
+
+                        <div class="characteristic-card">
+                            <div class="char-name">
+                                Puntos de Magia
+                                <span class="char-abbr">PM</span>
+                            </div>
+                            <div class="char-description">
+                                Tus <strong>Puntos de Magia son igual a tu POD dividido entre 5</strong>. Se usan para lanzar hechizos y resistir efectos mágicos.
+                            </div>
+                            <div class="dice-formula">
+                                PM = POD ÷ 5
+                            </div>
+                            <div id="magic-result" class="result-display">Introduce POD para calcular</div>
+                        </div>
+
+                        <div class="characteristic-card">
+                            <div class="char-name">
+                                Puntos de Vida
+                                <span class="char-abbr">PV</span>
+                            </div>
+                            <div class="char-description">
+                                Tus <strong>Puntos de Vida se determinan sumando CON y TAM, luego dividiendo entre 10</strong>. Las fracciones se redondean hacia abajo.
+                            </div>
+                            <div class="dice-formula">
+                                PV = (CON + TAM) ÷ 10
+                            </div>
+                            <div class="calc-inputs">
+                                <label>CON: <input type="number" id="con-input" placeholder="50" onchange="calculateDerived()"></label>
+                                <label>TAM: <input type="number" id="tam-input" placeholder="40" onchange="calculateDerived()"></label>
+                            </div>
+                            <div id="hp-result" class="result-display">Introduce CON y TAM</div>
+                        </div>
+
+                        <div class="characteristic-card">
+                            <div class="char-name">
+                                Bonificación de Daño
+                                <span class="char-abbr">BD</span>
+                            </div>
+                            <div class="char-description">
+                                Los personajes excepcionalmente fuertes pueden obtener una <strong>bonificación de daño en combate cuerpo a cuerpo</strong>. Se calcula sumando FUE + TAM.
+                            </div>
+                            <div class="dice-formula">
+                                Ver Tabla: FUE + TAM
+                            </div>
+                            <div class="calc-inputs">
+                                <label>FUE: <input type="number" id="fue-input" placeholder="50" onchange="calculateDerived()"></label>
+                                <label>TAM: <input type="number" id="tam2-input" placeholder="40" onchange="calculateDerived()"></label>
+                            </div>
+                            <div id="damage-result" class="result-display">Introduce FUE y TAM</div>
+                        </div>
+
+                        <div class="characteristic-card">
+                            <div class="char-name">
+                                Constitución (Build)
+                                <span class="char-abbr">CON</span>
+                            </div>
+                            <div class="char-description">
+                                La <strong>Constitución determina tu resistencia física</strong> y se usa junto con la Bonificación de Daño para determinar efectos especiales en combate.
+                            </div>
+                            <div class="dice-formula">
+                                Basado en FUE + TAM
+                            </div>
+                            <div id="build-result" class="result-display">Introduce FUE y TAM</div>
+                        </div>
+
+                        <div class="characteristic-card">
+                            <div class="char-name">
+                                Velocidad de Movimiento
+                                <span class="char-abbr">VEL</span>
+                            </div>
+                            <div class="char-description">
+                                Tu <strong>velocidad de movimiento determina cuántos metros puedes moverte en un asalto</strong>. Depende de la comparación entre DES, FUE y TAM.
+                            </div>
+                            <div class="dice-formula">
+                                Ver reglas especiales
+                            </div>
+                            <div class="calc-inputs">
+                                <label>DES: <input type="number" id="des-input" placeholder="40" onchange="calculateDerived()"></label>
+                                <label>FUE: <input type="number" id="fue2-input" placeholder="50" onchange="calculateDerived()"></label>
+                                <label>TAM: <input type="number" id="tam3-input" placeholder="40" onchange="calculateDerived()"></label>
+                            </div>
+                            <div id="movement-result" class="result-display">Introduce DES, FUE y TAM</div>
+                        </div>
+
+                        <div class="characteristic-card">
+                            <div class="char-name">
+                                Esquivar
+                                <span class="char-abbr">ESQ</span>
+                            </div>
+                            <div class="char-description">
+                                Tu <strong>habilidad de Esquivar empieza siendo la mitad de tu DES</strong>. Es una habilidad, por lo que puede mejorarse gastando puntos de habilidad.
+                            </div>
+                            <div class="dice-formula">
+                                ESQ = DES ÷ 2
+                            </div>
+                            <div id="dodge-result" class="result-display">Introduce DES para calcular</div>
+                        </div>
+                    </div>
+
+                    <div class="special-note">
+                        <h4 style="color: #d4af37; margin-bottom: 15px;">📋 Tabla de Bonificación de Daño y Constitución</h4>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; font-family: monospace;">
+                            <div style="font-weight: bold; color: #d4af37;">FUE + TAM</div>
+                            <div style="font-weight: bold; color: #d4af37;">Bonificación Daño</div>
+                            <div style="font-weight: bold; color: #d4af37;">Constitución</div>
+                            <div>2-64</div><div>-2</div><div>-2</div>
+                            <div>65-84</div><div>-1</div><div>-1</div>
+                            <div>85-124</div><div>+0</div><div>0</div>
+                            <div>125-164</div><div>+1D4</div><div>+1</div>
+                            <div>165-204</div><div>+1D6</div><div>+2</div>
+                            <div>205+</div><div>+2D6</div><div>+3</div>
+                        </div>
+                    </div>
+
+                    <div class="special-note">
+                        <h4 style="color: #d4af37; margin-bottom: 15px;">🏃 Reglas de Velocidad de Movimiento</h4>
+                        <div style="line-height: 1.8;">
+                            <div>• <strong>VEL 7:</strong> DES y FUE < TAM</div>
+                            <div>• <strong>VEL 8:</strong> DES o FUE ≥ TAM</div>
+                            <div>• <strong>VEL 9:</strong> DES y FUE > TAM</div>
+                            <div style="margin-top: 10px; font-style: italic; color: #ccc;">
+                                * Si has envejecido tu personaje, podrías necesitar deducir puntos de tu Velocidad de Movimiento.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="occupations" class="tab-content">
+                <h2 class="section-title">Ocupaciones</h2>
+                
+                <div class="special-note">
+                    <h4 style="color: #d4af37; margin-bottom: 15px;">📋 Información General</h4>
+                    <p>Cada ocupación define <strong>8 habilidades ocupacionales</strong>, <strong>puntos de habilidad ocupacional</strong> y <strong>nivel de crédito</strong>. Las ocupaciones están categorizadas según la época:</p>
+                    <div style="margin: 15px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                        <div style="background: rgba(212, 175, 55, 0.2); padding: 10px; border-radius: 6px;">
+                            <strong>🎩 [Lovecraftiana]:</strong> Frecuentes en las historias de Lovecraft
+                        </div>
+                        <div style="background: rgba(139, 0, 0, 0.2); padding: 10px; border-radius: 6px;">
+                            <strong>⚰️ [Clásica]:</strong> Solo disponibles en la década de 1920
+                        </div>
+                        <div style="background: rgba(0, 100, 150, 0.2); padding: 10px; border-radius: 6px;">
+                            <strong>💻 [Moderna]:</strong> Solo para ambientaciones actuales
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <input type="text" id="occupation-search" placeholder="Buscar ocupación..." style="
+                        background: rgba(0, 0, 0, 0.6);
+                        border: 2px solid #d4af37;
+                        border-radius: 8px;
+                        padding: 12px 20px;
+                        color: #f0f0f0;
+                        font-size: 1rem;
+                        width: 300px;
+                        max-width: 90%;
+                    " oninput="filterOccupations()">
+                </div>
+
+                <div id="occupations-grid" class="characteristics-grid">
+                    <div class="occupation-card" data-name="abogado" data-category="general">
+                        <div class="char-name">
+                            Abogado
+                            <span class="category-tag general">General</span>
+                        </div>
+                        <div class="occupation-details">
+                            <div class="credit-level">Nivel de Crédito: <strong>30-80</strong></div>
+                            <div class="skill-points">Puntos de Habilidad: <strong>EDU × 4</strong></div>
+                        </div>
+                        <div class="skills-list">
+                            <strong>Habilidades:</strong> Contabilidad, Derecho, Psicología, Usar Bibliotecas, dos pericias interpersonales (Charme, Intimidación, Lábia o Persuasión), otras dos pericias
+                        </div>
+                    </div>
+
+                    <div class="occupation-card" data-name="andarilho" data-category="general">
+                        <div class="char-name">
+                            Andarín (Vagabundo)
+                            <span class="category-tag general">General</span>
+                        </div>
+                        <div class="occupation-details">
+                            <div class="credit-level">Nivel de Crédito: <strong>0-5</strong></div>
+                            <div class="skill-points">Puntos de Habilidad: <strong>EDU × 2 + (APA/DES/FUE × 2)</strong></div>
+                        </div>
+                        <div class="skills-list">
+                            <strong>Habilidades:</strong> Escalar, Escuchar, Furtividad, Navegación, Saltar, una pericia interpersonal, otras dos pericias
+                        </div>
+                    </div>
+
+                    <div class="occupation-card" data-name="anticuario" data-category="lovecraftiana">
+                        <div class="char-name">
+                            Anticuario
+                            <span class="category-tag lovecraftiana">🎩 Lovecraftiana</span>
+                        </div>
+                        <div class="occupation-details">
+                            <div class="credit-level">Nivel de Crédito: <strong>30-70</strong></div>
+                            <div class="skill-points">Puntos de Habilidad: <strong>EDU × 4</strong></div>
+                        </div>
+                        <div class="skills-list">
+                            <strong>Habilidades:</strong> Arte/Oficio, Avaluación, Encontrar, Historia, Otra Lengua, Usar Bibliotecas, una pericia interpersonal, una otra pericia
+                        </div>
+                    </div>
+
+                    <div class="occupation-card" data-name="artista" data-category="general">
+                        <div class="char-name">
+                            Artista
+                            <span class="category-tag general">General</span>
+                        </div>
+                        <div class="occupation-details">
+                            <div class="credit-level">Nivel de Crédito: <strong>9-50</strong></div>
+                            <div class="skill-points">Puntos de Habilidad: <strong>EDU × 2 + (POD/DES × 2)</strong></div>
+                        </div>
+                        <div class="skills-list">
+                            <strong>Habilidades:</strong> Arte/Oficio, Encontrar, Historia o Mundo Natural, Otra Lengua, Psicología, una pericia interpersonal, otras dos pericias
+                        </div>
+                    </div>
+
+                    <div class="occupation-card" data-name="atleta" data-category="general">
+                        <div class="char-name">
+                            Atleta
+                            <span class="category-tag general">General</span>
+                        </div>
+                        <div class="occupation-details">
+                            <div class="credit-level">Nivel de Crédito: <strong>9-70</strong></div>
+                            <div class="skill-points">Puntos de Habilidad: <strong>EDU × 2 + (DES/FUE × 2)</strong></div>
+                        </div>
+                        <div class="skills-list">
+                            <strong>Habilidades:</strong> Arrojar, Cabalgar, Escalar, Luchar (Briga), Natación, Saltar, una pericia interpersonal, una otra pericia
+                        </div>
+                    </div>
+
+                    <div class="occupation-card" data-name="bibliotecario" data-category="lovecraftiana">
+                        <div class="char-name">
+                            Bibliotecario
+                            <span class="category-tag lovecraftiana">🎩 Lovecraftiana</span>
+                        </div>
+                        <div class="occupation-details">
+                            <div class="credit-level">Nivel de Crédito: <strong>9-35</strong></div>
+                            <div class="skill-points">Puntos de Habilidad: <strong>EDU × 4</strong></div>
+                        </div>
+                        <div class="skills-list">
+                            <strong>Habilidades:</strong> Contabilidad, Lengua Nativa, Otra Lengua, Usar Bibliotecas, cuatro especialidades personales o tópicos especializados
+                        </div>
+                    </div>
+
+                    <div class="occupation-card" data-name="clerigo" data-category="general">
+                        <div class="char-name">
+                            Clérigo
+                            <span class="category-tag general">General</span>
+                        </div>
+                        <div class="occupation-details">
+                            <div class="credit-level">Nivel de Crédito: <strong>9-60</strong></div>
+                            <div class="skill-points">Puntos de Habilidad: <strong>EDU × 4</strong></div>
+                        </div>
+                        <div class="skills-list">
+                            <strong>Habilidades:</strong> Contabilidad, Escuchar, Historia, Otra Lengua, Psicología, Usar Bibliotecas, una pericia interpersonal, una otra pericia
+                        </div>
+                    </div>
+
+                    <div class="occupation-card" data-name="criminoso" data-category="general">
+                        <div class="char-name">
+                            Criminal
+                            <span class="category-tag general">General</span>
+                        </div>
+                        <div class="occupation-details">
+                            <div class="credit-level">Nivel de Crédito: <strong>5-65</strong></div>
+                            <div class="skill-points">Puntos de Habilidad: <strong>EDU × 2 + (DES/FUE × 2)</strong></div>
+                        </div>
+                        <div class="skills-list">
+                            <strong>Habilidades:</strong> Encontrar, Furtividad, Psicología, una pericia interpersonal, más cuatro entre: Armas de Fuego, Avaluación, Cerrajería, Reparaciones, Disfraz, Luchar, Prestidigitación
+                        </div>
+                    </div>
+
+                    <div class="occupation-card" data-name="detective" data-category="general">
+                        <div class="char-name">
+                            Detective Particular
+                            <span class="category-tag general">General</span>
+                        </div>
+                        <div class="occupation-details">
+                            <div class="credit-level">Nivel de Crédito: <strong>9-30</strong></div>
+                            <div class="skill-points">Puntos de Habilidad: <strong>EDU × 2 + (DES/FUE × 2)</strong></div>
+                        </div>
+                        <div class="skills-list">
+                            <strong>Habilidades:</strong> Arte/Oficio (Fotografía), Derecho, Disfraz, Encontrar, Psicología, Usar Bibliotecas, una pericia interpersonal, una otra pericia
+                        </div>
+                    </div>
+
+                    <div class="occupation-card" data-name="diletante" data-category="lovecraftiana">
+                        <div class="char-name">
+                            Diletante
+                            <span class="category-tag lovecraftiana">🎩 Lovecraftiana</span>
+                        </div>
+                        <div class="occupation-details">
+                            <div class="credit-level">Nivel de Crédito: <strong>50-99</strong></div>
+                            <div class="skill-points">Puntos de Habilidad: <strong>EDU × 2 + APA × 2</strong></div>
+                        </div>
+                        <div class="skills-list">
+                            <strong>Habilidades:</strong> Armas de Fuego, Arte/Oficio, Cabalgar, Otra Lengua, una pericia interpersonal, otras tres pericias
+                        </div>
+                    </div>
+
+                    <div class="occupation-card" data-name="ingeniero" data-category="general">
+                        <div class="char-name">
+                            Ingeniero
+                            <span class="category-tag general">General</span>
+                        </div>
+                        <div class="occupation-details">
+                            <div class="credit-level">Nivel de Crédito: <strong>30-60</strong></div>
+                            <div class="skill-points">Puntos de Habilidad: <strong>EDU × 4</strong></div>
+                        </div>
+                        <div class="skills-list">
+                            <strong>Habilidades:</strong> Arte/Oficio (Dibujo Técnico), Reparaciones Eléctricas, Ciencia (Ingeniería), Ciencia (Física), Reparaciones Mecánicas, Operar Maquinaria, Usar Bibliotecas, una otra pericia
+                        </div>
+                    </div>
+
+                    <div class="occupation-card" data-name="escritor" data-category="lovecraftiana">
+                        <div class="char-name">
+                            Escritor
+                            <span class="category-tag lovecraftiana">🎩 Lovecraftiana</span>
+                        </div>
+                        <div class="occupation-details">
+                            <div class="credit-level">Nivel de Crédito: <strong>9-30</strong></div>
+                            <div class="skill-points">Puntos de Habilidad: <strong>EDU × 4</strong></div>
+                        </div>
+                        <div class="skills-list">
+                            <strong>Habilidades:</strong> Arte (Literatura), Historia, Lengua Nativa, Mundo Natural o Ocultismo, Otra Lengua, Psicología, Usar Bibliotecas, una otra pericia
+                        </div>
+                    </div>
+
+                    <div class="occupation-card" data-name="granjero" data-category="general">
+                        <div class="char-name">
+                            Granjero
+                            <span class="category-tag general">General</span>
+                        </div>
+                        <div class="occupation-details">
+                            <div class="credit-level">Nivel de Crédito: <strong>9-30</strong></div>
+                            <div class="skill-points">Puntos de Habilidad: <strong>EDU × 2 + (DES/FUE × 2)</strong></div>
+                        </div>
+                        <div class="skills-list">
+                            <strong>Habilidades:</strong> Arte/Oficio (Trabajos de Granja), Reparaciones Mecánicas, Conducir Automóviles, Mundo Natural, Operar Maquinaria, Rastrear, una pericia interpersonal, una otra pericia
+                        </div>
+                    </div>
+
+                    <div class="occupation-card" data-name="fanatico" data-category="general">
+                        <div class="char-name">
+                            Fanático
+                            <span class="category-tag general">General</span>
+                        </div>
+                        <div class="occupation-details">
+                            <div class="credit-level">Nivel de Crédito: <strong>0-30</strong></div>
+                            <div class="skill-points">Puntos de Habilidad: <strong>Variable</strong></div>
+                        </div>
+                        <div class="skills-list">
+                            <strong>Habilidades:</strong> Furtividad, Historia, Psicología, dos pericias interpersonales, tres otras pericias
+                        </div>
+                    </div>
+
+                    <div class="occupation-card" data-name="hacker" data-category="moderna">
+                        <div class="char-name">
+                            Hacker
+                            <span class="category-tag moderna">💻 Moderna</span>
+                        </div>
+                        <div class="occupation-details">
+                            <div class="credit-level">Nivel de Crédito: <strong>10-70</strong></div>
+                            <div class="skill-points">Puntos de Habilidad: <strong>EDU × 4</strong></div>
+                        </div>
+                        <div class="skills-list">
+                            <strong>Habilidades:</strong> Reparaciones Eléctricas, Electrónica, Encontrar, Usar Bibliotecas, Usar Computadores, una pericia interpersonal, dos otras pericias
+                        </div>
+                    </div>
+
+                    <div class="occupation-card" data-name="investigador" data-category="lovecraftiana">
+                        <div class="char-name">
+                            Investigador de Policía
+                            <span class="category-tag lovecraftiana">🎩 Lovecraftiana</span>
+                        </div>
+                        <div class="occupation-details">
+                            <div class="credit-level">Nivel de Crédito: <strong>20-50</strong></div>
+                            <div class="skill-points">Puntos de Habilidad: <strong>EDU × 2 + (DES/FUE × 2)</strong></div>
+                        </div>
+                        <div class="skills-list">
+                            <strong>Habilidades:</strong> Arte/Oficio (Actuar) o Disfraz, Armas de Fuego, Derecho, Escuchar, Psicología, Encontrar, una pericia interpersonal, una otra pericia
+                        </div>
+                    </div>
+
+                    <div class="occupation-card" data-name="periodista" data-category="lovecraftiana">
+                        <div class="char-name">
+                            Periodista
+                            <span class="category-tag lovecraftiana">🎩 Lovecraftiana</span>
+                        </div>
+                        <div class="occupation-details">
+                            <div class="credit-level">Nivel de Crédito: <strong>9-30</strong></div>
+                            <div class="skill-points">Puntos de Habilidad: <strong>EDU × 4</strong></div>
+                        </div>
+                        <div class="skills-list">
+                            <strong>Habilidades:</strong> Arte/Oficio (Arte o Fotografía), Historia, Lengua Nativa, Psicología, Usar Bibliotecas, una pericia interpersonal, dos otras pericias
+                        </div>
+                    </div>
+
+                    <div class="occupation-card" data-name="medico" data-category="lovecraftiana">
+                        <div class="char-name">
+                            Médico
+                            <span class="category-tag lovecraftiana">🎩 Lovecraftiana</span>
+                        </div>
+                        <div class="occupation-details">
+                            <div class="credit-level">Nivel de Crédito: <strong>30-80</strong></div>
+                            <div class="skill-points">Puntos de Habilidad: <strong>EDU × 4</strong></div>
+                        </div>
+                        <div class="skills-list">
+                            <strong>Habilidades:</strong> Ciencia (Biología), Ciencia (Farmacia), Medicina, Otra Lengua (Latín), Primeros Auxilios, Psicología, dos especialidades académicas o personales
+                        </div>
+                    </div>
+
+                    <div class="occupation-card" data-name="profesor" data-category="lovecraftiana">
+                        <div class="char-name">
+                            Profesor
+                            <span class="category-tag lovecraftiana">🎩 Lovecraftiana</span>
+                        </div>
+                        <div class="occupation-details">
+                            <div class="credit-level">Nivel de Crédito: <strong>20-70</strong></div>
+                            <div class="skill-points">Puntos de Habilidad: <strong>EDU × 4</strong></div>
+                        </div>
+                        <div class="skills-list">
+                            <strong>Habilidades:</strong> Lengua Nativa, Otra Lengua, Psicología, Usar Bibliotecas, cuatro pericias como especialidades académicas o personales
+                        </div>
+                    </div>
+
+                    <div class="occupation-card" data-name="soldado" data-category="general">
+                        <div class="char-name">
+                            Soldado
+                            <span class="category-tag general">General</span>
+                        </div>
+                        <div class="occupation-details">
+                            <div class="credit-level">Nivel de Crédito: <strong>9-30</strong></div>
+                            <div class="skill-points">Puntos de Habilidad: <strong>EDU × 2 + (DES/FUE × 2)</strong></div>
+                        </div>
+                        <div class="skills-list">
+                            <strong>Habilidades:</strong> Armas de Fuego, Escalar o Natación, Esquivar, Furtividad, Luchar, Supervivencia, dos entre: Reparaciones Mecánicas, Otra Lengua o Primeros Auxilios
+                        </div>
+                    </div>
+                </div>
+
+                <div class="special-note">
+                    <h4 style="color: #d4af37; margin-bottom: 15px;">💡 Consejos para Elegir Ocupación</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px;">📚 <strong>Para investigación:</strong> Bibliotecario, Profesor, Periodista, Anticuario</li>
+                        <li style="margin-bottom: 10px;">⚔️ <strong>Para combate:</strong> Soldado, Oficial de Policía, Investigador de Policía</li>
+                        <li style="margin-bottom: 10px;">🎭 <strong>Para interacción social:</strong> Diletante, Artista, Clérigo</li>
+                        <li style="margin-bottom: 10px;">🔍 <strong>Para investigación práctica:</strong> Detective Particular, Criminal, Investigador de Policía</li>
+                        <li style="margin-bottom: 10px;">🧠 <strong>Para conocimiento académico:</strong> Médico, Professor, Ingeniero</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div id="combat" class="tab-content">
+                <h2 class="section-title">Combate</h2>
+                <p style="text-align: center; color: #ccc; font-style: italic;">Esta sección se expandirá próximamente...</p>
+            </div>
+
+            <div id="skills" class="tab-content">
+                <h2 class="section-title">Habilidades</h2>
+                
+                <div class="special-note">
+                    <h4 style="color: #d4af37; margin-bottom: 15px;">📋 Sistema de Puntos de Habilidad</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 15px;">
+                        <div style="background: rgba(212, 175, 55, 0.2); padding: 15px; border-radius: 8px;">
+                            <strong>🎯 Habilidades Ocupacionales</strong><br>
+                            Puntos = según fórmula de ocupación<br>
+                            <small>Solo en las 8 habilidades de tu ocupación</small>
+                        </div>
+                        <div style="background: rgba(139, 0, 0, 0.2); padding: 15px; border-radius: 8px;">
+                            <strong>🧠 Intereses Personales</strong><br>
+                            Puntos = INT × 2<br>
+                            <small>Cualquier habilidad que desees</small>
+                        </div>
+                    </div>
+                    <p><strong>💡 Consejo:</strong> Cada habilidad tiene un valor base (entre paréntesis) que representa la oportunidad básica sin entrenamiento.</p>
+                </div>
+
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <input type="text" id="skills-search" placeholder="Buscar habilidad..." style="
+                        background: rgba(0, 0, 0, 0.6);
+                        border: 2px solid #d4af37;
+                        border-radius: 8px;
+                        padding: 12px 20px;
+                        color: #f0f0f0;
+                        font-size: 1rem;
+                        width: 300px;
+                        max-width: 90%;
+                    " oninput="filterSkills()">
+                </div>
+
+                <div id="skills-grid" class="characteristics-grid">
+                    <div class="skill-card" data-name="antropologia">
+                        <div class="skill-name">
+                            Antropología
+                            <span class="skill-base">(01%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Permite identificar y comprender el modo de vida y el comportamiento de un individuo o cultura mediante la observación.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="armas">
+                        <div class="skill-name">
+                            Armas de Fuego
+                            <span class="skill-base">(20%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Incluye todo tipo de armas de fuego, así como arcos y ballestas. <strong>Especialidades:</strong> arco, ballesta, fusil/escopeta, pistola.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="arqueologia">
+                        <div class="skill-name">
+                            Arqueología
+                            <span class="skill-base">(01%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Permite datar e identificar objetos pertenecientes a culturas del pasado, así como detectar falsificaciones.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="arte">
+                        <div class="skill-name">
+                            Arte y Artesanía
+                            <span class="skill-base">(05%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Permite la creación, interpretación y reparación de un objeto. Puede ser artístico (pinturas, canciones) o artesanal (trabajos en madera, cocina). <strong>Requiere especialización.</strong>
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="buscar">
+                        <div class="skill-name">
+                            Buscar Libros
+                            <span class="skill-base">(20%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Sirve para encontrar fuentes documentales como libros, periódicos o referencias específicas dentro de bibliotecas. <strong>Requiere varias horas de búsqueda.</strong>
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="cerrajeria">
+                        <div class="skill-name">
+                            Cerrajería
+                            <span class="skill-base">(01%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Permite abrir puertas, hacer puentes a coches, vulnerar alarmas comerciales, hacer llaves y forzar cerraduras con ganzúas u otras herramientas.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="charlataneria">
+                        <div class="skill-name">
+                            Charlatanería
+                            <span class="skill-base">(05%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Trucos, engaños y distracciones verbales para engatusar, conseguir firmas, hacer la vista gorda, etc. <strong>Se opone a Charlatanería o Psicología.</strong>
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="ciencia">
+                        <div class="skill-name">
+                            Ciencia
+                            <span class="skill-base">(01%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Aptitud teórica y práctica en especialidades científicas. <strong>Especialidades:</strong> Astronomía, Biología, Botánica, Criptografía, Farmacología, Física, Geología, Química, Zoología, etc.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="ocultismo">
+                        <div class="skill-name">
+                            Ciencias Ocultas
+                            <span class="skill-base">(05%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Reconocer palabras, conceptos, tradiciones y parafernalia ocultista; identificar grimorios de magia y códigos del ocultismo.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="combatir">
+                        <div class="skill-name">
+                            Combatir
+                            <span class="skill-base">(25%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Pericia en combate cuerpo a cuerpo. <strong>Especialidades:</strong> pelea (incluye cuchillos, garrotes, nudillos americanos), espada, hacha, lanza, látigo.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="conducir">
+                        <div class="skill-name">
+                            Conducir Automóvil
+                            <span class="skill-base">(20%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Conducir automóviles o camionetas, realizar maniobras habituales y resolver problemas corrientes del vehículo. Persecuciones requieren tirada.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="maquinaria">
+                        <div class="skill-name">
+                            Conducir Maquinaria
+                            <span class="skill-base">(01%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Necesaria para conducir trenes, motores de vapor, bulldócers, excavadoras o cualquier máquina de construcción de gran envergadura.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="credito">
+                        <div class="skill-name">
+                            Crédito
+                            <span class="skill-base">(Variable)</span>
+                        </div>
+                        <div class="skill-description">
+                            Indicador de riqueza y posición social. <strong>0:</strong> Indigente, <strong>1-9:</strong> Pobre, <strong>10-49:</strong> Clase media, <strong>50-89:</strong> Adinerado, <strong>90-98:</strong> Rico, <strong>99:</strong> Increíblemente rico.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="derecho">
+                        <div class="skill-name">
+                            Derecho
+                            <span class="skill-base">(05%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Conocer leyes, precedentes judiciales, maniobras legales o procedimientos jurídicos. Útil para tratar con policía, abogados y jueces.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="descubrir">
+                        <div class="skill-name">
+                            Descubrir
+                            <span class="skill-base">(25%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Encontrar puertas secretas, detectar intrusos, encontrar pistas, reconocer emboscadas, notar bolsillos abultados. <strong>Habilidad clave para investigadores.</strong>
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="disfraz">
+                        <div class="skill-name">
+                            Disfrazarse
+                            <span class="skill-base">(01%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Se utiliza cuando quieres parecer otra persona.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="electricidad">
+                        <div class="skill-name">
+                            Electricidad
+                            <span class="skill-base">(10%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Reparar y modificar equipos eléctricos como motores de arranque, motores eléctricos, cajas de fusibles o alarmas antirrobo.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="encanto">
+                        <div class="skill-name">
+                            Encanto
+                            <span class="skill-base">(15%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Atracción física, seducción, adulación o amabilidad para conseguir que alguien actúe como deseas. <strong>Se opone a Encanto o Psicología.</strong>
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="equitacion">
+                        <div class="skill-name">
+                            Equitación
+                            <span class="skill-base">(05%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Montar caballos, mulas y burros. Incluye cuidados básicos del animal, equipación y manejo en terreno difícil.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="escuchar">
+                        <div class="skill-name">
+                            Escuchar
+                            <span class="skill-base">(20%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Interpretar y comprender sonidos, incluyendo conversaciones de pasada, murmullos tras puertas o palabras susurradas.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="esquivar">
+                        <div class="skill-name">
+                            Esquivar
+                            <span class="skill-base">(DES ÷ 2)</span>
+                        </div>
+                        <div class="skill-description">
+                            Evitar golpes y proyectiles de forma instintiva. Puedes usarla cualquier número de veces por asalto. <strong>No se puede esquivar balas (son invisibles).</strong>
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="historia">
+                        <div class="skill-name">
+                            Historia
+                            <span class="skill-base">(05%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Recordar datos históricos o sucesos significativos sobre países, ciudades, regiones o personas.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="intimidar">
+                        <div class="skill-name">
+                            Intimidar
+                            <span class="skill-base">(15%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Usar amenazas físicas o psicológicas para forzar a alguien a actuar de cierto modo o revelar información. <strong>Se opone a Intimidar o Psicología.</strong>
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="manos">
+                        <div class="skill-name">
+                            Juego de Manos
+                            <span class="skill-base">(10%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Ocultar, escamotear o enmascarar objetos. Requiere buena destreza y manipulación de objetos.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="lanzar">
+                        <div class="skill-name">
+                            Lanzar
+                            <span class="skill-base">(20%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Golpear un blanco. Distancia máxima = FUE ÷ 5 en metros. Para piedras, lanzas, granadas o bumeráns.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="lengua">
+                        <div class="skill-name">
+                            Lengua Propia
+                            <span class="skill-base">(EDU)</span>
+                        </div>
+                        <div class="skill-description">
+                            Tu lengua materna. Valor inicial igual a tu puntuación total de EDU.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="mecanica">
+                        <div class="skill-name">
+                            Mecánica
+                            <span class="skill-base">(10%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Reparar máquinas, carpintería, fontanería, fabricar objetos simples. Para cerraduras complejas se necesita Cerrajería.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="medicina">
+                        <div class="skill-name">
+                            Medicina
+                            <span class="skill-base">(01%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Diagnosticar y tratar accidentes, lesiones, enfermedades, envenenamientos. <strong>Cura 1D3 PV, requiere mínimo 1 hora.</strong>
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="mitos">
+                        <div class="skill-name">
+                            Mitos de Cthulhu
+                            <span class="skill-base">(00%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Comprensión de los inhumanos Mitos de Cthulhu. <strong>Solo se gana por encuentros con los Mitos. Socava la cordura. No se puede asignar al inicio.</strong>
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="nadar">
+                        <div class="skill-name">
+                            Nadar
+                            <span class="skill-base">(20%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Flotar y desplazarse en agua u otros líquidos. Solo se requieren tiradas en momentos críticos o peligrosos.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="naturaleza">
+                        <div class="skill-name">
+                            Naturaleza
+                            <span class="skill-base">(10%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Conocimiento tradicional de granjeros y pescadores. Identificar especies, hábitats, huellas, rastros y reclamos de animales.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="orientarse">
+                        <div class="skill-name">
+                            Orientarse
+                            <span class="skill-base">(10%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Seguir el camino correcto hacia un destino, interpretar mapas y valorar distancias y terrenos.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="otras">
+                        <div class="skill-name">
+                            Otras Lenguas
+                            <span class="skill-base">(01%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Comprender, hablar, escribir y leer en un idioma que no es el tuyo. <strong>Debes especificar el idioma.</strong>
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="persuasion">
+                        <div class="skill-name">
+                            Persuasión
+                            <span class="skill-base">(10%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Convencer mediante argumentos razonados. Requiere al menos media hora. <strong>Se opone a Persuasión o Psicología.</strong>
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="pilotar">
+                        <div class="skill-name">
+                            Pilotar
+                            <span class="skill-base">(01%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Condución segura de medios de transporte. <strong>Especialidades:</strong> avión, dirigible, barco, etc. Cada una se paga por separado.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="auxilios">
+                        <div class="skill-name">
+                            Primeros Auxilios
+                            <span class="skill-base">(30%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Asistencia médica de emergencia. <strong>Debe usarse en menos de 1 hora desde el daño. Restaura 1 PV.</strong>
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="psicoanalisis">
+                        <div class="skill-name">
+                            Psicoanálisis
+                            <span class="skill-base">(01%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Terapias emocionales para devolver Cordura. <strong>Tirada mensual: éxito = +1D3 Cordura, pifia = -1D6 Cordura.</strong>
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="psicologia">
+                        <div class="skill-name">
+                            Psicología
+                            <span class="skill-base">(10%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Formarse una idea sobre el carácter, motivaciones y si alguien miente. <strong>El Guardián hace las tiradas en secreto.</strong>
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="saltar">
+                        <div class="skill-name">
+                            Saltar
+                            <span class="skill-base">(20%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Reduce a la mitad el daño por caídas. Distancia sin impulso = estatura, con carrerilla = doble.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="rastros">
+                        <div class="skill-name">
+                            Seguir Rastros
+                            <span class="skill-base">(10%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Seguir personas, vehículos o animales. El tiempo, lluvia y terreno afectan la dificultad.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="sigilo">
+                        <div class="skill-name">
+                            Sigilo
+                            <span class="skill-base">(20%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Moverse en silencio o esconderse sin alertar a quienes podrían verte u oírte.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="supervivencia">
+                        <div class="skill-name">
+                            Supervivencia
+                            <span class="skill-base">(10%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Sobrevivir en ambientes extremos. <strong>Especialidades:</strong> desierto, mar, ártico, etc. Incluye caza, refugios y reconocer peligros.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="tasacion">
+                        <div class="skill-name">
+                            Tasación
+                            <span class="skill-base">(05%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Estimar el valor de un objeto particular, incluyendo calidad, material y manufactura.
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-name="trepar">
+                        <div class="skill-name">
+                            Trepar
+                            <span class="skill-base">(20%)</span>
+                        </div>
+                        <div class="skill-description">
+                            Trepar árboles y escalar muros u otras superficies con o sin cuerdas y material de escalada.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="special-note">
+                    <h4 style="color: #d4af37; margin-bottom: 15px;">💡 Consejos para Asignar Puntos</h4>
+                    <ul style="list-style: none; padding: 0; line-height: 1.8;">
+                        <li>🤔 <strong>Consulta con tu Guardián:</strong> ¿Mantener separadas las habilidades ocupacionales y personales?</li>
+                        <li>📊 <strong>Límites máximos:</strong> Algunos Guardianes no permiten habilidades del 95% al inicio</li>
+                        <li>🎭 <strong>Coherencia narrativa:</strong> Tu bibliotecario debería tener una MUY buena razón para Demoliciones al 80%</li>
+                        <li>💰 <strong>No olvides:</strong> Asignar puntos a Crédito y considerar mejorar Esquivar</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="sanity" class="tab-content">
+                <h2 class="section-title">Cordura</h2>
+                <p style="text-align: center; color: #ccc; font-style: italic;">Esta sección se expandirá próximamente...</p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all buttons
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        function filterSkills() {
+            const searchTerm = document.getElementById('skills-search').value.toLowerCase();
+            const skillCards = document.querySelectorAll('.skill-card');
+            
+            skillCards.forEach(card => {
+                const name = card.getAttribute('data-name').toLowerCase();
+                const text = card.textContent.toLowerCase();
+                
+                if (name.includes(searchTerm) || text.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function filterOccupations() {
+            const searchTerm = document.getElementById('occupation-search').value.toLowerCase();
+            const occupationCards = document.querySelectorAll('.occupation-card');
+            
+            occupationCards.forEach(card => {
+                const name = card.getAttribute('data-name').toLowerCase();
+                const text = card.textContent.toLowerCase();
+                
+                if (name.includes(searchTerm) || text.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function toggleSection(section) {
+            const characteristicsSection = document.getElementById('characteristics-section');
+            const derivedSection = document.getElementById('derived-section');
+            
+            if (section === 'characteristics') {
+                characteristicsSection.style.display = 'block';
+                derivedSection.style.display = 'none';
+            } else if (section === 'derived') {
+                characteristicsSection.style.display = 'none';
+                derivedSection.style.display = 'block';
+            }
+        }
+
+        function calculateDerived() {
+            // Get input values
+            const pod = parseInt(document.getElementById('pod-input').value) || 0;
+            const con = parseInt(document.getElementById('con-input').value) || 0;
+            const tam = parseInt(document.getElementById('tam-input').value) || 0;
+            const fue = parseInt(document.getElementById('fue-input').value) || 0;
+            const tam2 = parseInt(document.getElementById('tam2-input').value) || 0;
+            const des = parseInt(document.getElementById('des-input').value) || 0;
+            const fue2 = parseInt(document.getElementById('fue2-input').value) || 0;
+            const tam3 = parseInt(document.getElementById('tam3-input').value) || 0;
+
+            // Calculate Sanity Points
+            if (pod > 0) {
+                document.getElementById('sanity-result').innerHTML = `
+                    <div style="font-size: 1.2rem; font-weight: bold;">
+                        Cordura: ${pod} puntos
+                    </div>
+                `;
+            }
+
+            // Calculate Magic Points
+            if (pod > 0) {
+                const magicPoints = Math.floor(pod / 5);
+                document.getElementById('magic-result').innerHTML = `
+                    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+                        ${pod} ÷ 5 = ${magicPoints}
+                    </div>
+                    <div style="font-size: 1.2rem; font-weight: bold;">
+                        PM: ${magicPoints} puntos
+                    </div>
+                `;
+            }
+
+            // Calculate Hit Points
+            if (con > 0 && tam > 0) {
+                const hitPoints = Math.floor((con + tam) / 10);
+                document.getElementById('hp-result').innerHTML = `
+                    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+                        (${con} + ${tam}) ÷ 10 = ${hitPoints}
+                    </div>
+                    <div style="font-size: 1.2rem; font-weight: bold;">
+                        PV: ${hitPoints} puntos
+                    </div>
+                `;
+            }
+
+            // Calculate Damage Bonus and Build
+            if (fue > 0 && tam2 > 0) {
+                const total = fue + tam2;
+                let damageBonus, build;
+                
+                if (total <= 64) {
+                    damageBonus = "-2";
+                    build = "-2";
+                } else if (total <= 84) {
+                    damageBonus = "-1";
+                    build = "-1";
+                } else if (total <= 124) {
+                    damageBonus = "+0";
+                    build = "0";
+                } else if (total <= 164) {
+                    damageBonus = "+1D4";
+                    build = "+1";
+                } else if (total <= 204) {
+                    damageBonus = "+1D6";
+                    build = "+2";
+                } else {
+                    damageBonus = "+2D6";
+                    build = "+3";
+                }
+
+                document.getElementById('damage-result').innerHTML = `
+                    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+                        FUE + TAM: ${fue} + ${tam2} = ${total}
+                    </div>
+                    <div style="font-size: 1.2rem; font-weight: bold;">
+                        BD: ${damageBonus}
+                    </div>
+                `;
+
+                document.getElementById('build-result').innerHTML = `
+                    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+                        FUE + TAM: ${total}
+                    </div>
+                    <div style="font-size: 1.2rem; font-weight: bold;">
+                        Constitución: ${build}
+                    </div>
+                `;
+            }
+
+            // Calculate Movement Rate
+            if (des > 0 && fue2 > 0 && tam3 > 0) {
+                let movement;
+                
+                if (des < tam3 && fue2 < tam3) {
+                    movement = 7;
+                } else if (des > tam3 && fue2 > tam3) {
+                    movement = 9;
+                } else {
+                    movement = 8;
+                }
+
+                document.getElementById('movement-result').innerHTML = `
+                    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+                        DES:${des}, FUE:${fue2}, TAM:${tam3}
+                    </div>
+                    <div style="font-size: 1.2rem; font-weight: bold;">
+                        Velocidad: ${movement} m/asalto
+                    </div>
+                `;
+            }
+
+            // Calculate Dodge
+            if (des > 0) {
+                const dodge = Math.floor(des / 2);
+                document.getElementById('dodge-result').innerHTML = `
+                    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+                        ${des} ÷ 2 = ${dodge}
+                    </div>
+                    <div style="font-size: 1.2rem; font-weight: bold;">
+                        Esquivar: ${dodge}%
+                    </div>
+                `;
+            }
+        }
+
+        function rollDice(numDice, sides, multiplier, resultId) {
+            let total = 0;
+            let rolls = [];
+            
+            for (let i = 0; i < numDice; i++) {
+                const roll = Math.floor(Math.random() * sides) + 1;
+                rolls.push(roll);
+                total += roll;
+            }
+            
+            const finalResult = total * multiplier;
+            const resultElement = document.getElementById(resultId);
+            
+            // Show animation
+            resultElement.innerHTML = "🎲 Tirando...";
+            
+            setTimeout(() => {
+                resultElement.innerHTML = `
+                    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+                        Dados: [${rolls.join(', ')}] = ${total}
+                    </div>
+                    <div style="font-size: 1.2rem; font-weight: bold;">
+                        Resultado: ${finalResult}
+                    </div>
+                `;
+            }, 800);
+        }
+
+        function rollDiceWithBonus(numDice, sides, bonus, multiplier, resultId) {
+            let total = 0;
+            let rolls = [];
+            
+            for (let i = 0; i < numDice; i++) {
+                const roll = Math.floor(Math.random() * sides) + 1;
+                rolls.push(roll);
+                total += roll;
+            }
+            
+            total += bonus;
+            const finalResult = total * multiplier;
+            const resultElement = document.getElementById(resultId);
+            
+            // Show animation
+            resultElement.innerHTML = "🎲 Tirando...";
+            
+            setTimeout(() => {
+                resultElement.innerHTML = `
+                    <div style="font-size: 0.9rem; margin-bottom: 5px;">
+                        Dados: [${rolls.join(', ')}] + ${bonus} = ${total}
+                    </div>
+                    <div style="font-size: 1.2rem; font-weight: bold;">
+                        Resultado: ${finalResult}
+                    </div>
+                `;
+            }, 800);
+        }
+    </script>
+</body>
+</html>
