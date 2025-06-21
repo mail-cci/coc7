@@ -99,6 +99,8 @@ export class CharacterCreator {
         this.character.stats.SUE = value;
         const el = document.getElementById('stat-SUE');
         if (el) el.textContent = value;
+        const luckEl = document.getElementById('luck-field');
+        if (luckEl) luckEl.textContent = value;
         this.calculateDerived();
         this.updateDerivedUI();
     }

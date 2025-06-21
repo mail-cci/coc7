@@ -6,6 +6,13 @@ creator.init();
 const steps = Array.from(document.querySelectorAll('.wizard-step'));
 let current = 0;
 
+const rollLuckBtn = document.getElementById('roll-luck');
+if (rollLuckBtn) {
+    rollLuckBtn.addEventListener('click', () => {
+        creator.rollLuck();
+    });
+}
+
 function showStep(index){
     steps.forEach((s,i)=>{
         s.style.display = i===index ? 'block' : 'none';
@@ -40,7 +47,32 @@ function renderSummary(){
     document.getElementById('summary').textContent = txt;
 }
 
+function validateStep(index){
+    const char = creator.getCharacter();
+    if(index === 0){
+        const allRolled = Object.values(char.stats).every(v => v > 0);
+        if(!allRolled){
+            alert('Tira todas las características antes de continuar');
+            return false;
+        }
+    }
+    if(index === 1){
+        if(char.luck === 0){
+            alert('Debes tirar la Suerte antes de continuar');
+            return false;
+        }
+    }
+    if(index === 2){
+        if(!char.occupation){
+            alert('Selecciona una ocupación');
+            return false;
+        }
+    }
+    return true;
+}
+
 document.getElementById('next-btn').addEventListener('click', () => {
+    if(!validateStep(current)) return;
     if(current < steps.length - 1){
         current++;
         if(current === steps.length - 1){
