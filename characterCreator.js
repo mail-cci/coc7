@@ -6,6 +6,11 @@ export class CharacterCreator {
                 INT: 0, POD: 0, EDU: 0, SUE: 0
             },
             derived: { HP: 0, SAN: 0, MP: 0 },
+            luck: 0,
+            combat: { skills: {}, notes: '' },
+            background: '',
+            equipment: '',
+            possessions: '',
             occupation: null,
             skills: {}
         };
@@ -88,8 +93,19 @@ export class CharacterCreator {
         this.updateDerivedUI();
     }
 
+    rollLuck() {
+        const value = this.rollDice(3, 6) * 5;
+        this.character.luck = value;
+        this.character.stats.SUE = value;
+        const el = document.getElementById('stat-SUE');
+        if (el) el.textContent = value;
+        this.calculateDerived();
+        this.updateDerivedUI();
+    }
+
     rollAll() {
         Object.keys(this.character.stats).forEach(stat => this.rollStat(stat));
+        this.rollLuck();
     }
 
     calculateDerived() {
@@ -137,6 +153,30 @@ export class CharacterCreator {
             this.character.occupation.skills.forEach(sk => { doc.text(`- ${sk}`, 12, y); y+=6; });
         }
         doc.save('personaje.pdf');
+    }
+
+    setCombatSkill(name, value) {
+        this.character.combat.skills[name] = value;
+    }
+
+    setCombatNotes(text) {
+        this.character.combat.notes = text;
+    }
+
+    setBackground(text) {
+        this.character.background = text;
+    }
+
+    setEquipment(text) {
+        this.character.equipment = text;
+    }
+
+    setPossessions(text) {
+        this.character.possessions = text;
+    }
+
+    getCharacter() {
+        return this.character;
     }
 }
 

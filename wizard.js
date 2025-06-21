@@ -15,26 +15,28 @@ function showStep(index){
 }
 
 function gatherData(){
-    creator.character.combatNotes = document.getElementById('combat-notes').value;
-    creator.character.background = document.getElementById('background-notes').value;
-    creator.character.equipment = document.getElementById('equipment-notes').value;
+    creator.setCombatNotes(document.getElementById('combat-notes').value);
+    creator.setBackground(document.getElementById('background-notes').value);
+    creator.setEquipment(document.getElementById('equipment-notes').value);
 }
 
 function renderSummary(){
     gatherData();
+    const char = creator.getCharacter();
     let txt = '';
-    Object.entries(creator.character.stats).forEach(([k,v])=>{txt += `${k}: ${v}\n`;});
-    txt += `PV: ${creator.character.derived.HP}\n`;
-    txt += `Cordura: ${creator.character.derived.SAN}\n`;
-    txt += `PM: ${creator.character.derived.MP}\n`;
-    if(creator.character.occupation){
-        txt += `Ocupación: ${creator.character.occupation.name}\n`;
+    Object.entries(char.stats).forEach(([k,v])=>{txt += `${k}: ${v}\n`;});
+    txt += `PV: ${char.derived.HP}\n`;
+    txt += `Cordura: ${char.derived.SAN}\n`;
+    txt += `PM: ${char.derived.MP}\n`;
+    txt += `Suerte: ${char.luck}\n`;
+    if(char.occupation){
+        txt += `Ocupación: ${char.occupation.name}\n`;
         txt += 'Habilidades:\n';
-        creator.character.occupation.skills.forEach(sk=>{txt+=`- ${sk}\n`;});
+        char.occupation.skills.forEach(sk=>{txt+=`- ${sk}\n`;});
     }
-    if(creator.character.combatNotes){ txt+=`\nCombate:\n${creator.character.combatNotes}\n`; }
-    if(creator.character.background){ txt+=`\nBackground:\n${creator.character.background}\n`; }
-    if(creator.character.equipment){ txt+=`\nEquipamiento:\n${creator.character.equipment}\n`; }
+    if(char.combat.notes){ txt+=`\nCombate:\n${char.combat.notes}\n`; }
+    if(char.background){ txt+=`\nBackground:\n${char.background}\n`; }
+    if(char.equipment){ txt+=`\nEquipamiento:\n${char.equipment}\n`; }
     document.getElementById('summary').textContent = txt;
 }
 
