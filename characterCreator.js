@@ -38,17 +38,63 @@ export class CharacterCreator {
     async loadOccupations() {
         const resp = await fetch('profesiones.txt');
         const txt = await resp.text();
-        this.occupations = txt.trim().split(/\r?\n/).map(line => {
-            const [name, skillsStr] = line.split(':');
-            const skills = skillsStr ? skillsStr.split(',').map(s => s.trim()) : [];
-            return { name: name.trim(), skills };
-        });
+        this.occupations = this.parseOccupations(txt);
+    }
+
+    parseOccupations(text) {
+        const lines = text.split(/\r?\n/);
+        const occupations = [];
+        let current = null;
+
+        const splitSkills = (str) => {
+            const res = [];
+            let cur = '';
+            let depth = 0;
+            for (const ch of str) {
+                if (ch === '(') depth++;
+                if (ch === ')') depth--;
+                if (ch === ',' && depth === 0) {
+                    if (cur.trim()) res.push(cur.trim());
+                    cur = '';
+                } else {
+                    cur += ch;
+                }
+            }
+            if (cur.trim()) res.push(cur.trim());
+            return res;
+        };
+
+        for (const line of lines) {
+            if (line.startsWith('## ')) {
+                current = { name: line.slice(3).trim(), skills: [] };
+                occupations.push(current);
+                continue;
+            }
+            const m = line.match(/\*\*Habilidades:\*\*\s*(.*)/);
+            if (m && current) {
+                current.skills = splitSkills(m[1]);
+            }
+        }
+        return occupations;
     }
 
     async loadSkills() {
         const resp = await fetch('habilidades.txt');
         const txt = await resp.text();
-        this.allSkills = txt.trim().split(/\r?\n/).map(s => s.trim()).filter(Boolean);
+        this.allSkills = this.parseSkills(txt);
+    }
+
+    parseSkills(text) {
+        const regex = /\b([A-ZÁÉÍÓÚÜÑ][A-Za-zÁÉÍÓÚÜÑáéíóúüñ()' ]{2,40}?):/g;
+        const skills = [];
+        let match;
+        while ((match = regex.exec(text))) {
+            const name = match[1].trim();
+            if (name.startsWith('*')) continue;
+            if (['Crédito', 'Ejemplo', 'Nota'].includes(name)) continue;
+            if (!skills.includes(name)) skills.push(name);
+        }
+        return skills;
     }
 
     populateOccupationSelect() {
