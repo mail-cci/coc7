@@ -12,6 +12,12 @@ python3 -m http.server
 
 and then visit `http://localhost:8000/app.html`.
 
+## Character generator
+
+A simpler character generator is available in `creator.html`. It loads occupations from `occupations.json`, lets you roll characteristics and exports the result to a PDF file using [jsPDF](https://github.com/parallax/jsPDF).
+
+Open `creator.html` in your browser or with the local server above.
+
 ## Planned features
 
 - Guided steps for creating a character (rolling characteristics, computing derived attributes and selecting an occupation).

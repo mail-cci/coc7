@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Abogado",
+    "credit": "30-80",
+    "skillPoints": "EDU × 4",
+    "skills": ["Contabilidad", "Derecho", "Psicología", "Usar Bibliotecas", "Interpersonal ×2", "Otras ×2"]
+  },
+  {
+    "name": "Artista",
+    "credit": "9-50",
+    "skillPoints": "EDU × 2 + (POD/DES × 2)",
+    "skills": ["Arte/Oficio", "Encontrar", "Historia o Mundo Natural", "Otra Lengua", "Psicología", "Interpersonal", "Otras ×2"]
+  },
+  {
+    "name": "Investigador de Policía",
+    "credit": "20-50",
+    "skillPoints": "EDU × 2 + (DES/FUE × 2)",
+    "skills": ["Arte/Oficio (Actuar) o Disfraz", "Armas de Fuego", "Derecho", "Escuchar", "Psicología", "Encontrar", "Interpersonal", "Otra"]
+  },
+  {
+    "name": "Médico",
+    "credit": "30-80",
+    "skillPoints": "EDU × 4",
+    "skills": ["Ciencia (Biología)", "Ciencia (Farmacia)", "Medicina", "Otra Lengua (Latín)", "Primeros Auxilios", "Psicología", "Especialidades ×2"]
+  },
+  {
+    "name": "Soldado",
+    "credit": "9-30",
+    "skillPoints": "EDU × 2 + (DES/FUE × 2)",
+    "skills": ["Armas de Fuego", "Escalar o Natación", "Esquivar", "Furtividad", "Luchar", "Supervivencia", "Reparaciones Mecánicas/Otra Lengua/Primeros Auxilios ×2"]
+  }
+]
