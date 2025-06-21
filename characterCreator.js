@@ -15,17 +15,20 @@ export class CharacterCreator {
             skills: {}
         };
         this.occupations = [];
+        this.allSkills = [];
     }
 
     async init() {
-        await this.loadOccupations();
+        await Promise.all([this.loadOccupations(), this.loadSkills()]);
         this.populateOccupationSelect();
+        this.renderSkillsLists();
         this.renderStats();
         document.getElementById('roll-all').addEventListener('click', () => {
             this.rollAll();
         });
         document.getElementById('occupation-select').addEventListener('change', e => {
             this.selectOccupation(e.target.value);
+            this.renderSkillsLists();
         });
         document.getElementById('export-btn').addEventListener('click', () => {
             this.exportPDF();
@@ -33,8 +36,19 @@ export class CharacterCreator {
     }
 
     async loadOccupations() {
-        const resp = await fetch('occupations.json');
-        this.occupations = await resp.json();
+        const resp = await fetch('profesiones.txt');
+        const txt = await resp.text();
+        this.occupations = txt.trim().split(/\r?\n/).map(line => {
+            const [name, skillsStr] = line.split(':');
+            const skills = skillsStr ? skillsStr.split(',').map(s => s.trim()) : [];
+            return { name: name.trim(), skills };
+        });
+    }
+
+    async loadSkills() {
+        const resp = await fetch('habilidades.txt');
+        const txt = await resp.text();
+        this.allSkills = txt.trim().split(/\r?\n/).map(s => s.trim()).filter(Boolean);
     }
 
     populateOccupationSelect() {
@@ -71,6 +85,39 @@ export class CharacterCreator {
             });
             card.appendChild(btn);
             grid.appendChild(card);
+        });
+    }
+
+    renderSkillsLists() {
+        const profContainer = document.getElementById('profession-skills');
+        const otherContainer = document.getElementById('other-skills');
+        if (!profContainer || !otherContainer) return;
+
+        profContainer.innerHTML = '';
+        otherContainer.innerHTML = '';
+
+        const profSkills = this.character.occupation ? this.character.occupation.skills : [];
+
+        this.allSkills.forEach(skill => {
+            const wrapper = document.createElement('div');
+            const cb = document.createElement('input');
+            cb.type = 'checkbox';
+            cb.id = `skill-${skill}`;
+            cb.checked = !!this.character.skills[skill];
+            cb.addEventListener('change', () => {
+                if (cb.checked) this.character.skills[skill] = true;
+                else delete this.character.skills[skill];
+            });
+            const label = document.createElement('label');
+            label.htmlFor = cb.id;
+            label.textContent = skill;
+            wrapper.appendChild(cb);
+            wrapper.appendChild(label);
+            if (profSkills.includes(skill)) {
+                profContainer.appendChild(wrapper);
+            } else {
+                otherContainer.appendChild(wrapper);
+            }
         });
     }
 
@@ -128,14 +175,17 @@ export class CharacterCreator {
     selectOccupation(name) {
         this.character.occupation = this.occupations.find(o => o.name === name);
         const list = document.getElementById('skills-list');
-        list.innerHTML = '';
-        if (this.character.occupation) {
-            this.character.occupation.skills.forEach(sk => {
-                const li = document.createElement('li');
-                li.textContent = sk;
-                list.appendChild(li);
-            });
+        if(list){
+            list.innerHTML = '';
+            if(this.character.occupation){
+                this.character.occupation.skills.forEach(sk => {
+                    const li = document.createElement('li');
+                    li.textContent = sk;
+                    list.appendChild(li);
+                });
+            }
         }
+        this.renderSkillsLists();
     }
 
     exportPDF() {
@@ -152,8 +202,10 @@ export class CharacterCreator {
         doc.text(`Suerte: ${this.character.luck}`,10,y); y+=10;
         if(this.character.occupation){
             doc.text(`Ocupación: ${this.character.occupation.name}`,10,y); y+=6;
+        }
+        if(Object.keys(this.character.skills).length){
             doc.text('Habilidades:',10,y); y+=6;
-            this.character.occupation.skills.forEach(sk => { doc.text(`- ${sk}`, 12, y); y+=6; });
+            Object.keys(this.character.skills).forEach(sk => { doc.text(`- ${sk}`, 12, y); y+=6; });
             y += 4;
         }
         if(Object.keys(this.character.combat.skills).length || this.character.combat.notes){

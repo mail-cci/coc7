@@ -1,0 +1,5 @@
+Abogado: Contabilidad, Derecho, Psicología, Usar Bibliotecas, Interpersonal ×2, Otras ×2
+Artista: Arte/Oficio, Encontrar, Historia o Mundo Natural, Otra Lengua, Psicología, Interpersonal, Otras ×2
+Investigador de Policía: Arte/Oficio (Actuar) o Disfraz, Armas de Fuego, Derecho, Escuchar, Psicología, Encontrar, Interpersonal, Otra
+Médico: Ciencia (Biología), Ciencia (Farmacia), Medicina, Otra Lengua (Latín), Primeros Auxilios, Psicología, Especialidades ×2
+Soldado: Armas de Fuego, Escalar o Natación, Esquivar, Furtividad, Luchar, Supervivencia, Reparaciones Mecánicas/Otra Lengua/Primeros Auxilios ×2
