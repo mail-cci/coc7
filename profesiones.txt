@@ -1,5 +1,209 @@
-Abogado: Contabilidad, Derecho, Psicología, Usar Bibliotecas, Interpersonal ×2, Otras ×2
-Artista: Arte/Oficio, Encontrar, Historia o Mundo Natural, Otra Lengua, Psicología, Interpersonal, Otras ×2
-Investigador de Policía: Arte/Oficio (Actuar) o Disfraz, Armas de Fuego, Derecho, Escuchar, Psicología, Encontrar, Interpersonal, Otra
-Médico: Ciencia (Biología), Ciencia (Farmacia), Medicina, Otra Lengua (Latín), Primeros Auxilios, Psicología, Especialidades ×2
-Soldado: Armas de Fuego, Escalar o Natación, Esquivar, Furtividad, Luchar, Supervivencia, Reparaciones Mecánicas/Otra Lengua/Primeros Auxilios ×2
+# Ejemplos de Ocupaciones - La Llamada de Cthulhu
+
+*Las ocupaciones listadas a continuación son solo una muestra de las posibilidades. Úsalas como guía al crear ocupaciones no listadas. Las ocupaciones importantes en las historias de Lovecraft están indicadas, aunque las marcadas como [Moderna] solo están disponibles para ambientaciones actuales.*
+
+---
+
+## ABOGADO
+- **Habilidades:** Contabilidad, Derecho, Psicología, Usar Bibliotecas, dos destrezas interpersonales (Encanto, Intimidación, Labia o Persuasión), otras dos destrezas
+- **Nivel de Crédito:** 30-80
+- **Puntos de Destrezas Ocupacionales:** EDU × 4
+
+---
+
+## VAGABUNDO
+- **Habilidades:** Escalar, Escuchar, Sigilo, Navegación, Saltar, una destreza interpersonal (Encanto, Intimidación, Labia o Persuasión), otras dos destrezas
+- **Nivel de Crédito:** 0-5
+- **Puntos de Destrezas Ocupacionales:** EDU × 2 + APA × 2, DES × 2 o FUE × 2
+
+---
+
+## ANTICUARIO [Lovecraftiano]
+- **Habilidades:** Arte/Oficio (cualquier uno), Evaluación, Encontrar, Historia, Otro Idioma, Usar Bibliotecas, una destreza interpersonal (Encanto, Intimidación, Labia o Persuasión), una otra destreza cualquiera
+- **Nivel de Crédito:** 30-70
+- **Puntos de Destrezas Ocupacionales:** EDU × 4
+
+---
+
+## ARTISTA
+- **Habilidades:** Arte/Oficio (cualquier uno), Encontrar, Historia o Mundo Natural, Otro Idioma, Psicología, una destreza interpersonal (Encanto, Intimidación, Labia o Persuasión), otras dos destrezas
+- **Nivel de Crédito:** 9-50
+- **Puntos de Destrezas Ocupacionales:** EDU × 2 + POD × 2 o DES × 2
+
+---
+
+## ATLETA
+- **Habilidades:** Lanzar, Montar, Escalar, Luchar (Pelea), Natación, Saltar, una destreza interpersonal (Encanto, Intimidación, Labia o Persuasión), una otra destreza cualquiera
+- **Nivel de Crédito:** 9-70
+- **Puntos de Destrezas Ocupacionales:** EDU × 2 + DES × 2 o FUE × 2
+
+---
+
+## BIBLIOTECARIO [Lovecraftiano]
+- **Habilidades:** Contabilidad, Idioma Nativo, Otro Idioma, Usar Bibliotecas, otras cuatro especialidades como especialidades personales o tópicos de lectura especializados
+- **Nivel de Crédito:** 9-35
+- **Puntos de Destrezas Ocupacionales:** EDU × 4
+
+---
+
+## CLÉRIGO, MIEMBRO DEL
+- **Habilidades:** Contabilidad, Escuchar, Historia, Otro Idioma, Psicología, Usar Bibliotecas, una destreza interpersonal (Encanto, Intimidación, Labia o Persuasión), una otra destreza cualquiera
+- **Nivel de Crédito:** 9-60
+- **Puntos de Destrezas Ocupacionales:** EDU × 4
+
+---
+
+## CRIMINAL
+- **Habilidades:** Encontrar, Sigilo, Psicología, una destreza interpersonal (Encanto, Intimidación, Labia o Persuasión), más cuatro especialidades entre las siguientes: Armas de Fuego, Evaluación, Cerrajería, Reparaciones Mecánicas, Disfraz, Luchar, y Prestidigitación
+- **Nivel de Crédito:** 5-65
+- **Puntos de Destrezas Ocupacionales:** EDU × 2 + DES × 2 o FUE × 2
+
+---
+
+## DETECTIVE PRIVADO
+- **Habilidades:** Arte/Oficio (Fotografía), Derecho, Disfraz, Encontrar, Psicología, Usar Bibliotecas, una destreza interpersonal (Encanto, Intimidación, Labia o Persuasión), una otra destreza cualquiera (ej. Armas de Fuego, Cerrajería, Usar Computadoras)
+- **Nivel de Crédito:** 9-30
+- **Puntos de Destrezas Ocupacionales:** EDU × 2 + DES × 2 o FUE × 2
+
+---
+
+## DILETANTE [Lovecraftiano]
+- **Habilidades:** Armas de Fuego, Arte/Oficio (cualquier uno), Montar, Otro Idioma, una destreza interpersonal (Encanto, Intimidación, Labia o Persuasión), otras tres destrezas
+- **Nivel de Crédito:** 50-99
+- **Puntos de Destrezas Ocupacionales:** EDU × 2 + APA × 2
+
+---
+
+## INGENIERO
+- **Habilidades:** Arte/Oficio (Dibujo Técnico), Reparaciones Eléctricas, Ciencia (Ingeniería), Ciencia (Física), Reparaciones Mecánicas, Operar Maquinaria Pesada, Usar Bibliotecas, una otra destreza cualquiera
+- **Nivel de Crédito:** 30-60
+- **Puntos de Destrezas Ocupacionales:** EDU × 4
+
+---
+
+## ESCRITOR [Lovecraftiano]
+- **Habilidades:** Arte (Literatura), Historia, Idioma Nativo, Mundo Natural u Ocultismo, Otro Idioma, Psicología, Usar Bibliotecas, una otra destreza cualquiera
+- **Nivel de Crédito:** 9-30
+- **Puntos de Destrezas Ocupacionales:** EDU × 4
+
+---
+
+## GRANJERO
+- **Habilidades:** Arte/Oficio (Trabajos de Granja), Reparaciones Mecánicas, Conducir Automóviles (o Carreta), Mundo Natural, Operar Maquinaria Pesada, Rastrear, una destreza interpersonal (Encanto, Intimidación, Labia o Persuasión), una otra destreza cualquiera
+- **Nivel de Crédito:** 9-30
+- **Puntos de Destrezas Ocupacionales:** EDU × 2 + DES × 2 o FUE × 2
+
+---
+
+## FANÁTICO
+- **Habilidades:** Sigilo, Historia, Psicología, dos destrezas interpersonales (Encanto, Intimidación, Labia o Persuasión), tres otras destrezas
+- **Nivel de Crédito:** 0-30
+
+---
+
+## HACKER [Moderna]
+- **Habilidades:** Reparaciones Eléctricas, Electrónica, Encontrar, Usar Bibliotecas, Usar Computadoras, una destreza interpersonal (Encanto, Intimidación, Labia o Persuasión), dos otras destrezas
+- **Nivel de Crédito:** 10-70
+- **Puntos de Destrezas Ocupacionales:** EDU × 4
+
+---
+
+## INVESTIGADOR DE POLICÍA [Lovecraftiano]
+- **Habilidades:** Arte/Oficio (Actuar) o Disfraz, Armas de Fuego, Derecho, Escuchar, Psicología, Encontrar, una destreza interpersonal (Encanto, Intimidación, Labia o Persuasión), una otra destreza cualquiera
+- **Nivel de Crédito:** 20-50
+- **Puntos de Destrezas Ocupacionales:** EDU × 2 + DES × 2 o FUE × 2
+
+---
+
+## PERIODISTA [Lovecraftiano]
+- **Habilidades:** Arte/Oficio (Arte o Fotografía), Historia, Idioma Nativo, Psicología, Usar Bibliotecas, una destreza interpersonal (Encanto, Intimidación, Labia o Persuasión), cualesquiera otras dos destrezas
+- **Nivel de Crédito:** 9-30
+- **Puntos de Destrezas Ocupacionales:** EDU × 4
+
+---
+
+## MÉDICO [Lovecraftiano]
+- **Habilidades:** Ciencia (Biología), Ciencia (Farmacia), Medicina, Otro Idioma (Latín), Primeros Auxilios, Psicología, dos otras destrezas como especialidades académicas o personales (ej. un psiquiatra puede elegir Psicoanálisis)
+- **Nivel de Crédito:** 30-80
+- **Puntos de Destrezas Ocupacionales:** EDU × 4
+
+---
+
+## MISIONERO
+- **Habilidades:** Arte/Oficio (cualquier uno), Reparaciones Mecánicas, Medicina, Mundo Natural, Primeros Auxilios, una destreza interpersonal (Encanto, Intimidación, Labia o Persuasión), dos otras destrezas
+- **Nivel de Crédito:** 0-30
+- **Puntos de Destrezas Ocupacionales:** EDU × 4
+
+---
+
+## MÚSICO
+- **Habilidades:** Arte/Oficio (Instrumento), Escuchar, Psicología, una destreza interpersonal (Encanto, Intimidación, Labia o Persuasión), cuatro otras destrezas
+- **Nivel de Crédito:** 9-30
+- **Puntos de Destrezas Ocupacionales:** EDU × 2 + DES × 2 o POD × 2
+
+---
+
+## OFICIAL DE POLICÍA
+- **Habilidades:** Armas de Fuego, Derecho, Encontrar, Luchar (Pelea), Primeros Auxilios, Psicología, una destreza interpersonal (Encanto, Intimidación, Labia o Persuasión), y una de las siguientes destrezas como una especialidad personal: Montar o Conducir Automóviles
+- **Nivel de Crédito:** 9-30
+- **Puntos de Destrezas Ocupacionales:** EDU × 2 + DES × 2 o FUE × 2
+
+---
+
+## OFICIAL MILITAR
+- **Habilidades:** Armas de Fuego, Contabilidad, Navegación, Psicología, Supervivencia, dos destrezas interpersonales (Encanto, Intimidación, Labia o Persuasión), una otra destreza cualquiera
+- **Nivel de Crédito:** 20-70
+- **Puntos de Destrezas Ocupacionales:** EDU × 2 + DES × 2 o FUE × 2
+
+---
+
+## PARAPSICÓLOGO
+- **Habilidades:** Antropología, Arte/Oficio (Fotografía), Historia, Usar Bibliotecas, Ocultismo, Otro Idioma, Psicología, una otra destreza cualquiera
+- **Nivel de Crédito:** 9-30
+- **Puntos de Destrezas Ocupacionales:** EDU × 4
+
+---
+
+## PILOTO
+- **Habilidades:** Ciencia (Astronomía), Reparaciones Eléctricas, Reparaciones Mecánicas, Navegación, Operar Maquinaria Pesada, Pilotear (Aeronaves), dos otras destrezas
+- **Nivel de Crédito:** 20-70
+- **Puntos de Destrezas Ocupacionales:** EDU × 2 + DES × 2
+
+---
+
+## PROFESOR [Lovecraftiano]
+- **Habilidades:** Idioma Nativo, Otro Idioma, Psicología, Usar Bibliotecas, otras cuatro destrezas como especialidades académicas o personales
+- **Nivel de Crédito:** 20-70
+- **Puntos de Destrezas Ocupacionales:** EDU × 4
+
+---
+
+## PROFESIONAL DEL ENTRETENIMIENTO
+- **Habilidades:** Arte/Oficio (Actuar), Disfraz, Escuchar, Psicología, dos destrezas interpersonales (Encanto, Intimidación, Labia o Persuasión), dos otras destrezas
+- **Nivel de Crédito:** 9-70
+- **Puntos de Destrezas Ocupacionales:** EDU × 2 + APA × 2
+
+---
+
+## SOLDADO
+- **Habilidades:** Armas de Fuego, Escalar o Natación, Esquivar, Sigilo, Luchar, Supervivencia y dos entre las siguientes: Reparaciones Mecánicas, Otro Idioma o Primeros Auxilios
+- **Nivel de Crédito:** 9-30
+- **Puntos de Destrezas Ocupacionales:** EDU × 2 + DES × 2 o FUE × 2
+
+---
+
+## TRIBAL
+- **Habilidades:** Lanzar o Luchar, Encontrar, Escalar, Escuchar, Mundo Natural, Natación, Ocultismo, Supervivencia (cualquier una)
+- **Nivel de Crédito:** 0-15
+- **Puntos de Destrezas Ocupacionales:** EDU × 2 + DES × 2 o FUE × 2
+
+---
+
+## Abreviaciones:
+- **EDU:** Educación
+- **APA:** Apariencia  
+- **DES:** Destreza
+- **FUE:** Fuerza
+- **POD:** Poder
+- **[Lovecraftiano]:** Ocupación específica de la época de Lovecraft
+- **[Moderna]:** Ocupación solo disponible para ambientaciones modernas

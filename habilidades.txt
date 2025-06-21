@@ -1,44 +1,95 @@
-Antropología
-Armas de Fuego
-Arqueología
-Arte y Artesanía
-Buscar Libros
-Cerrajería
-Charlatanería
-Ciencia
-Ciencias Ocultas
-Combatir
-Conducir Automóvil
-Conducir Maquinaria
-Crédito
-Derecho
-Descubrir
-Disfrazarse
-Electricidad
-Encanto
-Equitación
-Escuchar
-Esquivar
-Historia
-Intimidar
-Juego de Manos
-Lanzar
-Lengua Propia
-Mecánica
-Medicina
-Mitos de Cthulhu
-Nadar
-Naturaleza
-Orientarse
-Otras Lenguas
-Persuasión
-Pilotar
-Primeros Auxilios
-Psicoanálisis
-Psicología
-Saltar
-Seguir Rastros
-Sigilo
-Supervivencia
-Tasación
-Trepar
+La mayoría de habilidades son lo que sugiere su propio nom-bre, como Conducir automóvil, que determina lo bien que un personaje puede conducir un automóvil o un coche, o Trepar, que se refiere a lo bien que escala o desciende por un muro.
+Sin embargo, algunos nombres resultan menos evidentes, por lo que aquí presentamos un breve sumario de las habilidades incluidas en la hoja de personaje.Nota: En la hoja de personaje cada habilidad tiene un valor de percentil entre paréntesis asociado a la misma; este número representa la oportunidad básica que cualquiera tiene de utilizarla sin formación previa. De este modo, cualquiera puede intentar disparar una pistola (20% de oportunidad de éxito básica) aunque nunca haya empuñado una.
+Antropología: Permite a quien la usa identificar y comprender el modo de vida y el comportamiento de un individuo o cultura mediante la observación.
+
+Armas de fuego: Incluye todo tipo de armas de fuego, así como arcos y ballestas. Puedes invertir puntos de habilidad para adquirir cualquier especialidad: arco, ballesta, fusil/escopeta, pistola.
+
+Arqueología: Permite datar e identificar objetos pertenecientes a culturas del pasado, así como detectar falsificaciones.
+Conducir automóvil: El investigador que posea esta habilidad es capaz de conducir un automóvil o camioneta, realizar las maniobras habituales y encargarse de los problemas corrientes del vehículo. Si el investigador desea dar esquinazo a un perseguidor o seguir a alguien, hará falta una tirada.
+
+Arte y Artesanía: Permite la creación, interpretación y reparación de un objeto. Puede ser artístico (pinturas o canciones) o artesanal (trabajos en madera o cocina). Elige una especialización adecuada y apúntala en el espacio indicado.
+Conducir maquinaria: Esta habilidad es necesaria para conducir y operar un tren, motores de vapor, un buldócer, excavadoras o cualquier otra máquina de construcción de gran envergadura.
+
+Buscar libros: Sirve para que el investigador encuentre una fuente documental como un libro, periódico o una referencia concreta dentro de una biblioteca o grupo de documentos (siempre y cuando lo que se busca esté allí).
+El empleo de esta habilidad requiere varias horas de búsqueda ininterrumpida.
+
+Cerrajería: Un cerrajero puede abrir las puertas de un coche, hacerle un puente, desbloquear la ventana de una biblioteca, resolver cajas rompecabezas y vulnerar los sistemas de alarma comerciales habituales. El usuario puede hacer llaves y reparar o forzar cerraduras utilizando una llave maestra, ganzúas u otras herramientas.
+
+Charlatanería: Está específicamente limitada a trucos, engaños y distracciones verbales, tales como engatusar a un gorila para que te deje entrar en un local, que alguien firme un contrato que no ha leído, hacer que un policía haga la vista gorda, etc. Las habilidades opuestas a Charlatanería son la propia Charlatanería o Psicología.
+
+Ciencia: La aptitud teórica y práctica para una especialidad científica adquirida mediante educación y experiencia aca-démica, aunque hay casos de científicos eruditos aficiona-dos. Los conocimientos y su extensión se ven limitados por la época de juego. Puedes invertir puntos de habilidad para adquirir cualquier especialidad, por ejemplo: Astronomía, Biología, Botánica, Criptografía, Farmacología, Física, Geolo-gía, Química, Zoología, etc. Cuando un personaje no dispone de la especialidad obvia, puede tirar usando una relacionada incrementando el nivel de dificultad o aplicando una penaliza-ción, a discreción del Guardián.Ciencias ocultas: El usuario es capaz de reconocer las pala-bras, conceptos, tradiciones populares y parafernalia ocultista; además permite identificar grimorios de magia y codigos del ocultismo. Se refiere a conocimientos místicos que se aprenden de libros, enseñanzas o por propia experiencia.
+
+Combatir: Indica la pericia de un personaje en el combate cuerpo a cuerpo. Puedes invertir puntos de habilidad para adquirir cualquier especialidad como pelea (que incluye cuchillos y garrotes, así como nudillos americanos y artes mar-ciales), espada, hacha, lanza y látigo.
+
+Conducir automóvil: El investigador que posea esta habilidad es capaz de conducir un automóvil o camioneta, realizar las maniobras habituales y encargarse de los problemas corrientes del vehículo. Si el investigador desea dar esquinazo a un perseguidor o seguir a alguien, hará falta una tirada.
+Conducir maquinaria: Esta habilidad es necesaria para conducir y operar un tren, motores de vapor, un buldócer, excavadoras o cualquier otra máquina de construcción de gran envergadura.Crédito: El Crédito de un personaje es el indicador de su riqueza y posición. Cuantos más puntos se gasten en esta habilidad, más rico será el investigador. Dependiendo de los puntos invertidos, tu personaje es:
+
+* Crédito 0: Indigente, vive en la calle.
+* Crédito 1-9: Pobre, solo tiene lo mínimo.
+*  Crédito 10-49: De clase media, un nivel de comodidad razonable.
+* Crédito 50-89: Adinerado, cierto grado de lujo.
+*  Crédito 90-98: Rico, grandes sumas y lujos.
+* Crédito 99: Increíblemente rico, el dinero ha dejado de tener significado.
+
+Ejemplo: Brian ha asignado un valor de 40% al Crédito de su soldado, lo que supone que posee un nivel de clase media.
+Derecho: Representa la probabilidad de conocer una determinada ley, precedente judicial, maniobra legal o procedimiento jurídico. Ayuda cuando hay que tratar con la policia, los abogados y los jueces.
+
+Descubrir: Permite al que la utiliza encontrar una puerta o un compartimento secretos, detectar a un intruso escondido, dar con una pista casi invisible, reconocer un automóvil que han vuelto a pintar, percibir emboscadas, fijarse en un bolsillo abultado etc. Se trata de una habilidad importante en el arsenal de un investigador. Cuando se busque a alguien oculto, se utilizará la habilidad de Sigilo del oponente para establecer la dificultad de la tirada.
+
+Disfrazarse: Se utiliza cuando quieres parecer otra persona.
+
+Electricidad: Permite al investigador reparar y modificar equipos eléctricos como un motor de arranque, motores eléctri-cos, cajas de fusibles o alarmas antirrobo.
+
+Encanto: Adopta muchas formas, como la atracción física, la seducción, la adulación o la simple amabilidad. Se puede utilizar para que alguien actúe de la forma deseada pero nunca de manera totalmente contraria a su comportamiento normal. Las habilidades opuestas a Encanto son el propio Encanto o Psicología.
+
+Equitación: Esta habilidad se utiliza para montar caballos, mulas y burros ensillados. Otorga conocimientos elementales acerca de los cuidados básicos del animal de monta, su equipación y su manejo a galope o por terreno difícil. Si una montura se encabrita de repente, la probabilidad del jinete de permanecer montado equivale a su puntuación en Equitación.
+
+Escuchar: Mide la capacidad de interpretar y comprender los sonidos, incluyendo conversaciones oídas de pasada, murmullos tras una puerta o palabras susurradas en una cafetería.
+
+Esquivar: Permite que un investigador evite golpes, proyectiles y cosas así de forma instintiva. Un personaje puede intentar utilizar la habilidad cualquier número de veces durante un asalto de combate (pero solo una vez contra un ataque determinado). Un personaje puede intentar esquivar cualquier ataque que pueda ver, pero es imposible esquivar balas porque su trayectoria resulta invisible. Lo mejor que podrá hacer es intentar llevar a cabo una maniobra evasiva que le haga más difícil de alcanzar. Determina el nivel inicial de Esquivar dividiendo por la mitad su valor total de DES.
+
+Historia: Ayuda a recordar datos históricos o sucesos significativos acerca de un país, una ciudad, una región o una per-sona, según corresponda.
+
+Intimidar: Uso de amenazas (físicas o psicológicas) para forzar a alguien a que actúe de un modo determinado o revele cierta información. Esta habilidad se opone a Intimidar o Psicología.
+
+Juego de manos: Permite ocultar, escamotear o enmascarar un objeto u objetos, tal vez valiéndose de unos desperdicios, la ropa u otros utensilios de ilusionismo; además de buena destreza y manipulación objetos.
+
+Lanzar: Se usa para golpear un blanco. Un objeto que quepa en la palma de la mano se puede arrojar hasta una distancia aproximada equivalente a la FUE del lanzador dividida entre 5 en metros. Si se falla la tirada, el objeto cae a una distancia al azar del blanco determinada por el Guardián. Utiliza esta habilidad en un combate para lanzar piedras, lanzas, granadas o un bumerán.
+
+Lengua propia: La lengua materna del investigador. Elige la que mejor conozca, como el inglés. Su valor inicial es equivalente a la puntuación total de EDU.
+
+Mecánica: Permite al investigador reparar una máquina estropeada o crear una nueva. También para efectuar trabajos sencillos de carpintería o fontanería, así como fabricar objetos (un sistema de poleas, por ejemplo) o repararlos (un artefacto de vapor, por ejemplo). Puede que se requieran componentes y herramientas especiales. Se puede utilizar para abrir la cerradura corriente de una casa, pero para una más compleja se necesita Cerrajería.
+
+Medicina: Permite diagnosticar y tratar accidentes, lesiones, enfermedades, envenenamientos, etc. Un tratamiento lleva un mínimo de una hora y se puede aplicar en cualquier momento tras sufrir el daño, pero, si no es en el mismo día, aumenta el nivel de dificultad (ver página 14). Una persona que reciba un tratamiento médico exitoso recuperará 1D3 puntos de vida (además de los Primeros auxilios que se le hubieran podido aplicar), excepto en el caso de un moribundo, al que habrá que aplicar unos Primeros auxilios para conseguir estabilizarlo antes de poder hacer la tirada de Medicina.
+
+Mitos de Cthulhu: Esta habilidad refleja la comprensión de los inhumanos Mitos de Cthulhu. A diferencia de otras habilidades académicas, no está basada en la acumulación de cono-cimiento. En lugar de eso, representa la apertura y la sintonía de la mente humana respecto a los Mitos de Cthulhu, por lo que los puntos de habilidad se obtienen mediante encuentros con los Mitos (monstruos o conocimiento de libros extraños)que son antitéticos a la comprensión humana. Exponerse a ellos socava la cordura. Ningún investigador puede adjudicar de inicio puntos a esta habilidad a menos que lo acuerde con el Guardián.
+
+Nadar: Esta habilidad permite flotar y desplazarse a través del agua u otro medio líquido. Solo deben realizarse tiradas de Nadar en momentos críticos o peligrosos. Fallar una tirada forzada de Nadar podrá provocar la pérdida de puntos de vida. También puede hacer que las aguas arrastren a esa persona corriente abajo, parcial o completamente ahogada.
+
+Naturaleza: Representa el conocimiento tradicional (no científico) y de observación personal de granjeros, pescadores y aficionados inspirados. Sirve para identificar las especies de animales y plantas, sus costumbres y hábitats en términos generales; así como para identificar huellas, rastros y reclamos de aves o animales.
+
+Orientarse: Permite al usuario seguir el camino correcto hacia un destino, también en una ciudad desconocida o en la espesura. Además, permite interpretar los mapas y valorar distancias y terrenos.
+
+Otras lenguas: Cuando se elige esta habilidad se debe especificar el idioma y anotarlo junto a esta. Se puede conocer cualquier cantidad de lenguas, pero hay que pagarlas con puntos de habilidad. Representa la capacidad de comprender, hablar, escribir y leer en un idioma que no es el tuyo.
+
+Persuasión: Permite convencer a un objetivo de una idea o una creencia concretas mediante argumentos razonados, debate o discusión. Se puede utilizar sin hacer referencia a la verdad. Utilizar Persuasión lleva tiempo, por lo menos media hora. Si lo que pretendes es persuadir a alguien rápidamente, debes utilizar Charlatanería. Esta habilidad se opone a otro uso de Persuasión o Psicología.
+
+Pilotar: Escoge una especialización, como avión, dirigible, barco, etc. Hay que pagar cada una por separado con puntos de habilidad. Permite la conducción de esos medios de transporte con seguridad.
+
+Primeros auxilios: El usuario es capaz de proporcionar asistencia médica de emergencia. No se puede utilizar para tratar enfermedades (para eso hace falta Medicina). Para que sea efectiva hay que utilizar la habilidad en menos de una hora desde que se haya producido el daño y, en ese caso, restaura 1 punto de vida y puede reanimar a una persona inconsciente.
+
+Psicoanálisis: Esta habilidad se refiere a un amplio espectro de terapias emocionales, no solo a los procesos freudianos.Un psicoanálisis puede devolver puntos de Cordura a un investigador en tratamiento. Para comprobar el progreso de la terapia, haz una tirada de la habilidad de Psicoanálisis del doctor o el analista una vez al mes (dentro del tiempo del juego). Si tiene éxito, el paciente recupera 1D3 puntos de Cordura. Si la tirada fracasa, no se añade ningún punto. Si se obtiene una pifia, el paciente perderá 1D6 puntos de Cordura y el tratamiento concluirá. Dentro del juego, el psicoanalisis por sí solo no acelera la recuperación de la locura perma-nente, que requiere 1D6 meses de cuidados institucionales de los cuales podrá formar parte la psicoterapia. El empleo con éxito de esta habilidad puede hacer que un personaje se pueda relacionar con el objeto de una fobia durante un breve periodo de tiempo o que identifique un delirio como lo que es.
+
+Psicología: Se trata de una habilidad propia de todos los seres humanos, que permite a quien la utilice formarse una idea acerca de otra persona: su carácter y motivaciones, además de si está mintiendo. El Guardián debe hacer las tiradas de Psicología en secreto en lugar del jugador y limitarse a dar la información, verdadera o falsa, que se obtiene.
+
+Saltar: Esta habilidad puede utilizarse para reducir a la mitad el daño sufrido por una caída. Un investigador puede saltar una distancia igual a su estatura sin tomar impulso (el doble si coge carrerilla); en distancias mayores se deberá aumentar la dificultad de la tirada.
+
+Seguir rastros: Mediante esta habilidad, un investigador puede seguir a una persona, un vehículo o un animal sobre tierra y a través de vegetación. Factores como el tiempo que ha pasado desde que se dejaron las huellas, la lluvia y el tipo de terreno pueden afectar al nivel de dificultad.
+
+Sigilo: El arte de moverse en silencio o esconderse sin alertar a aquellos que podrían verlo u oírlo.
+
+Supervivencia: Proporciona la capacidad necesaria para sobrevivir en ambientes extremos, como en un entorno desértico o ártico, así como en alta mar o en un terreno salvaje. Abarca los conocimientos de caza, la construcción de refugios y reconocer los peligros (tales como evitar las plantas venenosas), etc.Se debe invertir puntos de habilidad para adquirir cualquier especialidad: desierto, mar, ártico, etc. Cuando un personaje no posea la especialidad de supervivencia adecuada, podrá hacer una tirada de una especialidad similar con un nivel de dificultad mayor (o un dado de penalización), a discreción del Guardián.
+
+Tasación: Permite estimar el valor de un objeto particular, incluyendo su calidad, el material utilizado y su manufacturación.
+
+Trepar: Esta habilidad sirve para trepar a un árbol y escalar muros u otras superficies con o sin cuerdas y material de escalada.
