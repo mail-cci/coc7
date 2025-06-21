@@ -148,11 +148,29 @@ export class CharacterCreator {
         });
         doc.text(`PV: ${this.character.derived.HP}`, 10, y); y +=6;
         doc.text(`Cordura: ${this.character.derived.SAN}`,10,y); y+=6;
-        doc.text(`PM: ${this.character.derived.MP}`,10,y); y+=10;
+        doc.text(`PM: ${this.character.derived.MP}`,10,y); y+=6;
+        doc.text(`Suerte: ${this.character.luck}`,10,y); y+=10;
         if(this.character.occupation){
             doc.text(`Ocupación: ${this.character.occupation.name}`,10,y); y+=6;
             doc.text('Habilidades:',10,y); y+=6;
             this.character.occupation.skills.forEach(sk => { doc.text(`- ${sk}`, 12, y); y+=6; });
+            y += 4;
+        }
+        if(Object.keys(this.character.combat.skills).length || this.character.combat.notes){
+            doc.text('Combate:',10,y); y+=6;
+            Object.entries(this.character.combat.skills).forEach(([k,v])=>{ doc.text(`${k}: ${v}`,12,y); y+=6; });
+            if(this.character.combat.notes){ doc.text(this.character.combat.notes,12,y); y+=6; }
+        }
+        if(this.character.background){
+            doc.text('Background:',10,y); y+=6;
+            doc.text(this.character.background,12,y); y+=6;
+        }
+        if(this.character.possessions){
+            doc.text('Posesiones:',10,y); y+=6;
+            doc.text(this.character.possessions,12,y); y+=6;
+        } else if(this.character.equipment){
+            doc.text('Equipamiento:',10,y); y+=6;
+            doc.text(this.character.equipment,12,y); y+=6;
         }
         doc.save('personaje.pdf');
     }
